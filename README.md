@@ -61,17 +61,3 @@ python train_V.py env=metaworld_door-open-v2 seed=12349 agent.params.actor_lr=0.
 python train_PEBBLE.py env=metaworld_door-open-v2 seed=12345 agent.params.actor_lr=0.0003 agent.params.critic_lr=0.0003 num_unsup_steps=9000 num_train_steps=1000000 agent.params.batch_size=512 double_q_critic.params.hidden_dim=256 double_q_critic.params.hidden_depth=3 diag_gaussian_actor.params.hidden_dim=256 diag_gaussian_actor.params.hidden_depth=3 num_interact=5000 max_feedback=1000 reward_batch=10 reward_update=10 feed_type=1
 ```
 
-### Results: Success rate performance
-Here we provide the success rate performance results for various environments:
-
-  #### DeepMind Control Suite (Walker)
-
-  <p align="center">
-    <img src="figs/walker_success_rate.png" width="500">
-  </p>
-
-  #### Meta-world (Door Open)
-
-  <p align="center">
-    <img src="figs/door_success_rate.png" width="500">
-  </p>
