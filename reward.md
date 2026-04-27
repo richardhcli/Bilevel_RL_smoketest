@@ -131,16 +131,3 @@ Generate Door Open eval comparison:
 python plot_door_eval_compare.py
 ```
 
-## 6. Naming caveat
-
-The Walker PEBBLE experiment name is not fully consistent across plotting scripts:
-
-- `plot_current_results.py` expects `PEBBLE_maxfeed100_Rbatch10_seed12345`
-- `plot_walker_train_200k_compare.py` expects `PEBBLE_walker_refresh_maxfeed100_Rbatch10_seed12345`
-- `plot_walker_eval_compare.py` expects `PEBBLE_walker_refresh_maxfeed100_Rbatch10_seed12345`
-
-So use the experiment name that matches the figure you want to regenerate.
-
-## 7. Verification note
-
-We reran the Walker experiments from scratch with the same seed and configuration and confirmed that the regenerated logs matched the original stored logs exactly at overlapping checkpoints through nearly the full run. This is strong evidence that the current corrected codebase reproduces the reward plots already present in this repository.
