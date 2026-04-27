@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="720" height="420" viewBox="0 0 720 420">
+<rect width="100%" height="100%" fill="#fafafa"/>
+<text x="360" y="26" text-anchor="middle" font-size="22" font-family="Arial">Walker PEBBLE Eval Episode Reward</text>
+<line x1="70.0" y1="40.0" x2="70.0" y2="365.0" stroke="#eeeeee"/>
+<line x1="70.0" y1="40.0" x2="700.0" y2="40.0" stroke="#eeeeee"/>
+<line x1="227.5" y1="40.0" x2="227.5" y2="365.0" stroke="#eeeeee"/>
+<line x1="70.0" y1="121.2" x2="700.0" y2="121.2" stroke="#eeeeee"/>
+<line x1="385.0" y1="40.0" x2="385.0" y2="365.0" stroke="#eeeeee"/>
+<line x1="70.0" y1="202.5" x2="700.0" y2="202.5" stroke="#eeeeee"/>
+<line x1="542.5" y1="40.0" x2="542.5" y2="365.0" stroke="#eeeeee"/>
+<line x1="70.0" y1="283.8" x2="700.0" y2="283.8" stroke="#eeeeee"/>
+<line x1="700.0" y1="40.0" x2="700.0" y2="365.0" stroke="#eeeeee"/>
+<line x1="70.0" y1="365.0" x2="700.0" y2="365.0" stroke="#eeeeee"/>
+<line x1="70.0" y1="365.0" x2="700.0" y2="365.0" stroke="#444"/>
+<line x1="70.0" y1="40.0" x2="70.0" y2="365.0" stroke="#444"/>
+<polyline fill="none" stroke="#1f77b4" stroke-width="2.5" points="70.0,273.6 115.0,305.5 160.0,298.1 205.0,327.9 250.0,324.5 295.0,335.2 340.0,342.6 385.0,310.9 430.0,324.2 475.0,225.0 520.0,193.2 565.0,220.0 610.0,124.1 655.0,145.0 700.0,62.4" />
+<text x="70.0" y="387.0" text-anchor="middle" font-size="11" font-family="Arial">10k</text>
+<text x="62.0" y="44.0" text-anchor="end" font-size="11" font-family="Arial">549</text>
+<text x="227.5" y="387.0" text-anchor="middle" font-size="11" font-family="Arial">45k</text>
+<text x="62.0" y="125.2" text-anchor="end" font-size="11" font-family="Arial">413</text>
+<text x="385.0" y="387.0" text-anchor="middle" font-size="11" font-family="Arial">80k</text>
+<text x="62.0" y="206.5" text-anchor="end" font-size="11" font-family="Arial">278</text>
+<text x="542.5" y="387.0" text-anchor="middle" font-size="11" font-family="Arial">115k</text>
+<text x="62.0" y="287.8" text-anchor="end" font-size="11" font-family="Arial">142</text>
+<text x="700.0" y="387.0" text-anchor="middle" font-size="11" font-family="Arial">150k</text>
+<text x="62.0" y="369.0" text-anchor="end" font-size="11" font-family="Arial">6</text>
+<text x="360.0" y="408.0" text-anchor="middle" font-size="12" font-family="Arial">Environment Steps</text>
+<text x="20" y="210.0" text-anchor="middle" font-size="12" font-family="Arial" transform="rotate(-90 20 210.0)">Eval Episode Reward</text>
+</svg>
