@@ -1,0 +1,163 @@
+How to run this repo on this Windows machine
+
+Use WSL Ubuntu, not native Windows Python.
+Copy the repo into the Linux filesystem, not /mnt/c. The working Linux copy used here is:
+/root/projects/Bi-level-Reinforcement-Learning-main
+
+1. Install Ubuntu packages in WSL
+apt-get update
+DEBIAN_FRONTEND=noninteractive apt-get install -y unzip gcc g++ make build-essential cmake git wget curl libosmesa6-dev libgl1 libglfw3 patchelf libegl1 libopengl0 libglew-dev
+
+2. Install Miniconda in WSL
+wget -O /root/miniconda.sh https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh
+bash /root/miniconda.sh -b -p /root/miniconda3
+/root/miniconda3/bin/conda tos accept --override-channels --channel https://repo.anaconda.com/pkgs/main
+/root/miniconda3/bin/conda tos accept --override-channels --channel https://repo.anaconda.com/pkgs/r
+
+3. Create the base env from the repo
+cd /root/projects/Bi-level-Reinforcement-Learning-main
+/root/miniconda3/bin/conda env create -f conda_env.yml
+
+4. Install MuJoCo 2.0 and 2.1.0 in WSL
+mkdir -p /root/.mujoco
+wget -O /tmp/mujoco200_linux.zip https://www.roboti.us/download/mujoco200_linux.zip
+unzip -o /tmp/mujoco200_linux.zip -d /root/.mujoco
+wget -O /root/.mujoco/mjkey.txt https://www.roboti.us/file/mjkey.txt
+wget -O /tmp/mujoco210-linux-x86_64.tar.gz https://mujoco.org/download/mujoco210-linux-x86_64.tar.gz
+tar -xzf /tmp/mujoco210-linux-x86_64.tar.gz -C /root/.mujoco
+ln -sf /usr/lib/x86_64-linux-gnu/libGL.so.1 /usr/lib/x86_64-linux-gnu/libGL.so
+
+5. Install repo packages and critical compatibility pins
+/root/miniconda3/bin/conda install -n mrn -c conda-forge -y dm-tree=0.1.5
+/root/miniconda3/bin/conda run -n mrn pip install -e /root/projects/Bi-level-Reinforcement-Learning-main
+/root/miniconda3/bin/conda run -n mrn pip install dm-env future h5py lxml protobuf==3.19.6 pyopengl scipy tqdm termcolor pybullet scikit-image
+/root/miniconda3/bin/conda run -n mrn pip install -e /root/projects/Bi-level-Reinforcement-Learning-main/custom_dmcontrol --no-deps
+/root/miniconda3/bin/conda run -n mrn pip install -e /root/projects/Bi-level-Reinforcement-Learning-main/custom_dmc2gym
+/root/miniconda3/bin/conda run -n mrn pip install git+https://github.com/rlworkgroup/metaworld.git@04be337a12305e393c0caf0cbf5ec7755c7c8feb
+/root/miniconda3/bin/conda run -n mrn pip install git+https://github.com/facebookresearch/hydra@0.11_branch
+/root/miniconda3/bin/conda run -n mrn pip install "Cython<3"
+/root/miniconda3/bin/conda run -n mrn pip install --force-reinstall "gym==0.17.3"
+
+6. Always run training with these env vars
+export MUJOCO_GL=osmesa
+export MJKEY_PATH=/root/.mujoco/mjkey.txt
+export MJLIB_PATH=/root/.mujoco/mujoco200_linux/bin/libmujoco200.so
+export MUJOCO_PY_MUJOCO_PATH=/root/.mujoco/mujoco210
+export LD_LIBRARY_PATH=/root/.mujoco/mujoco200_linux/bin:/root/.mujoco/mujoco210/bin:${LD_LIBRARY_PATH}
+
+7. Example Walker commands
+python train_V.py env=walker_walk seed=12345 agent.params.actor_lr=0.0005 agent.params.critic_lr=0.0005 num_unsup_steps=9000 num_train_steps=1000000 num_interact=20000 max_feedback=100 reward_batch=10 reward_update=50 feed_type=1
+python train_PEBBLE.py env=walker_walk seed=12345 agent.params.actor_lr=0.0005 agent.params.critic_lr=0.0005 num_unsup_steps=9000 num_train_steps=1000000 num_interact=20000 max_feedback=100 reward_batch=10 reward_update=50 feed_type=1
+
+Notes
+- Native Windows execution did not work reliably for this repo.
+- MuJoCo 2.0 is needed for the dm_control side. MuJoCo 2.1.0 is also needed because metaworld imports mujoco_py during startup.
+- The README command is not enough by itself on this machine; the extra package pins above were required to make the old stack run.
+- PEBBLE had a repo bug on this machine: `train_PEBBLE.py` called `self.reward_model.train_reward()` and `train_soft_reward()` without passing `self.agent.critic`.
+
+
+
+
+8. Task: Fix the repo so that train_PEBBLE.py works with the current reward_model.py, while leaving train_V.py completely unchanged.
+
+Main requirement:
+- Do NOT modify train_V.py.
+- train_V.py should continue to pass self.agent.critic into reward-model training exactly as it does now.
+- The fix should make train_PEBBLE.py the no-critic baseline again.
+
+Problem:
+- train_PEBBLE.py currently calls:
+  - self.reward_model.train_reward()
+  - self.reward_model.train_soft_reward()
+- But reward_model.py currently expects:
+  - train_reward(self, critic)
+  - train_soft_reward(self, critic)
+- This causes a missing-argument runtime error for train_PEBBLE.py.
+
+Required changes:
+
+1. Leave train_V.py unchanged
+- Do not edit train_V.py.
+- Its current calls with self.agent.critic should remain exactly as they are.
+
+2. Update train_PEBBLE.py
+- In learn_reward(), change the reward-model calls so they explicitly pass critic=None.
+- Replace:
+  - self.reward_model.train_reward()
+  - self.reward_model.train_soft_reward()
+- With:
+  - self.reward_model.train_reward(critic=None)
+  - self.reward_model.train_soft_reward(critic=None)
+
+Reason:
+- train_PEBBLE.py is supposed to be the no-critic baseline.
+- Passing critic=None makes that intent explicit.
+
+3. Update reward_model.py: make critic optional
+- Change the function signatures:
+  - from: def train_reward(self, critic):
+    to:   def train_reward(self, critic=None)
+  - from: def train_soft_reward(self, critic):
+    to:   def train_soft_reward(self, critic=None)
+
+4. Update reward_model.py: conditional critic regularization in train_reward
+- Keep all existing reward-logit construction exactly the same.
+- Introduce:
+  - reg_term = 0.0
+- Only compute the current critic-based regularization if critic is not None.
+- Logic should be:
+  - if critic is not None:
+      - convert sa_t_1 to torch tensor on device
+      - call critic.forward_v(obs_action=sa_t_1_temp)
+      - set reg_term = lambda1 * Q1.sum(axis=1).mean()
+- Final loss should be:
+  - curr_loss = self.CEloss(r_hat, labels) + reg_term
+
+Important:
+- Do not change the current regularization formula for the critic-enabled case.
+- Just guard it behind "if critic is not None".
+
+5. Update reward_model.py: conditional critic regularization in train_soft_reward
+- Keep all existing soft-label / target_onehot logic exactly the same.
+- Introduce:
+  - reg_term = 0.0
+- Only compute the current critic-based regularization if critic is not None.
+- Logic should be:
+  - if critic is not None:
+      - convert sa_t_1 to torch tensor on device
+      - call critic.forward_v(obs_action=sa_t_1_temp)
+      - set reg_term = lambda1 * Q1.sum(axis=1).mean()
+- Final loss should be:
+  - curr_loss = self.softXEnt_loss(r_hat, target_onehot) + reg_term
+
+6. Add a small safety fix in train_PEBBLE.py
+- In learn_reward(), initialize:
+  - total_acc = 0.0
+- Do this before:
+  - if self.labeled_feedback > 0:
+- This prevents a possible print-time error if no labels are obtained.
+
+Other code changes needed:
+- reward_model.py:
+  - make critic optional in both reward-training methods
+  - make critic regularization conditional on critic is not None
+- train_PEBBLE.py:
+  - pass critic=None explicitly
+  - initialize total_acc = 0.0 before the labeled-feedback block
+
+Other code changes NOT needed for this fix:
+- No change to train_V.py
+- No change to agent/critic.py
+- No change to agent/sac.py
+- No change to replay_buffer.py
+- No change to config files unless you want to add comments or documentation
+
+Behavior after fix:
+- train_V.py remains the critic-regularized version
+- train_PEBBLE.py becomes the explicit no-critic baseline again
+- reward_model.py supports both modes through an optional critic argument
+
+Implementation constraint:
+- Preserve the existing training structure and logic.
+- Do not duplicate reward_model.py into separate files.
+- Do not alter the current critic-enabled behavior used by train_V.py.

@@ -1,0 +1,231 @@
+workspace: /mnt/c/Users/mudit/OneDrive/Desktop/Academics/Bi_level_RL_MG/utsav code/Bi-level-Reinforcement-Learning-main-utsav-singh - Backup/Bi-level-Reinforcement-Learning-main/exp/walker_walk/H1024_L2_lr0.0005/teacher_b-1_g1_m0_s0_e0/init1000_unsup9000_inter20000_seg50_acttanh_Rlr0.0003_Rupdate50_en3_sample1_large_batch10_schedule_0_label_smooth_0.0/Value_lambda_0.1_fix1_restart_compare_maxfeed100_Rbatch10_seed12345
+[2026-04-15 21:11:18,065][absl][INFO] - MUJOCO_GL=osmesa, attempting to import specified OpenGL backend.
+[2026-04-15 21:11:18,083][OpenGL.acceleratesupport][INFO] - No OpenGL_accelerate module loaded: No module named 'OpenGL_accelerate'
+[2026-04-15 21:11:18,241][absl][INFO] - MuJoCo library version is: 200
+| [33mtrain[0m | E: 2 | S: 2000 | R: 49.03 | TR: 38.49 | TF: 0 | LR: 0 | NR: 0 | D: 19.9 s | TD: 23.3 s | BR: 0.05 | ALOSS: -6.46 | CLOSS: 0.33 | TLOSS: 0.54 | TVAL: 0.10 | AENT: -0.38 | BCLOSS: 0.00
+| [33mtrain[0m | E: 3 | S: 3000 | R: 47.73 | TR: 134.22 | TF: 0 | LR: 0 | NR: 0 | D: 19.0 s | TD: 42.3 s | BR: 0.05 | ALOSS: -12.77 | CLOSS: 0.30 | TLOSS: 0.29 | TVAL: 0.09 | AENT: -2.83 | BCLOSS: 0.00
+| [33mtrain[0m | E: 4 | S: 4000 | R: 45.06 | TR: 193.19 | TF: 0 | LR: 0 | NR: 0 | D: 21.0 s | TD: 63.3 s | BR: 0.05 | ALOSS: -18.88 | CLOSS: 0.32 | TLOSS: 0.25 | TVAL: 0.08 | AENT: -3.03 | BCLOSS: 0.00
+| [33mtrain[0m | E: 5 | S: 5000 | R: 41.73 | TR: 122.27 | TF: 0 | LR: 0 | NR: 0 | D: 30.1 s | TD: 93.4 s | BR: 0.04 | ALOSS: -24.92 | CLOSS: 0.35 | TLOSS: 0.19 | TVAL: 0.08 | AENT: -3.62 | BCLOSS: 0.00
+| [33mtrain[0m | E: 6 | S: 6000 | R: 39.18 | TR: 143.35 | TF: 0 | LR: 0 | NR: 0 | D: 30.0 s | TD: 123.4 s | BR: 0.04 | ALOSS: -30.48 | CLOSS: 0.40 | TLOSS: 0.13 | TVAL: 0.07 | AENT: -4.25 | BCLOSS: 0.00
+| [33mtrain[0m | E: 7 | S: 7000 | R: 37.29 | TR: 84.90 | TF: 0 | LR: 0 | NR: 0 | D: 30.6 s | TD: 154.0 s | BR: 0.04 | ALOSS: -35.98 | CLOSS: 0.44 | TLOSS: 0.07 | TVAL: 0.07 | AENT: -5.02 | BCLOSS: 0.00
+| [33mtrain[0m | E: 8 | S: 8000 | R: 36.66 | TR: 151.48 | TF: 0 | LR: 0 | NR: 0 | D: 30.8 s | TD: 184.9 s | BR: 0.04 | ALOSS: -41.37 | CLOSS: 0.47 | TLOSS: 0.02 | TVAL: 0.07 | AENT: -5.70 | BCLOSS: 0.00
+| [33mtrain[0m | E: 9 | S: 9000 | R: 39.01 | TR: 92.28 | TF: 0 | LR: 0 | NR: 0 | D: 31.1 s | TD: 215.9 s | BR: 0.04 | ALOSS: -46.39 | CLOSS: 0.53 | TLOSS: -0.01 | TVAL: 0.07 | AENT: -6.12 | BCLOSS: 0.00
+| [33mtrain[0m | E: 10 | S: 10000 | R: 40.60 | TR: 182.59 | TF: 0 | LR: 0 | NR: 0 | D: 32.4 s | TD: 248.3 s | BR: 0.04 | ALOSS: -51.33 | CLOSS: 0.61 | TLOSS: -0.01 | TVAL: 0.07 | AENT: -6.21 | BCLOSS: 0.00
+| [32meval[0m  | E: 10 | S: 10000 | R: 159.43 | TR: 159.43 | TS: 0.00
+Reward function is updated!! ACC: 1.0
+| [33mtrain[0m | E: 11 | S: 11000 | R: 43.53 | TR: 117.65 | TF: 0 | LR: 0 | NR: 0 | D: 46.1 s | TD: 294.5 s | BR: 0.13 | ALOSS: -0.89 | CLOSS: 0.24 | TLOSS: 0.54 | TVAL: 0.06 | AENT: 2.92 | BCLOSS: 0.00
+| [33mtrain[0m | E: 12 | S: 12000 | R: 523.48 | TR: 34.43 | TF: 10 | LR: 10 | NR: 0 | D: 26.6 s | TD: 321.1 s | BR: 0.15 | ALOSS: -1.73 | CLOSS: 0.16 | TLOSS: 0.44 | TVAL: 0.05 | AENT: 2.09 | BCLOSS: 0.00
+| [33mtrain[0m | E: 13 | S: 13000 | R: 215.54 | TR: 43.06 | TF: 10 | LR: 10 | NR: 0 | D: 25.5 s | TD: 346.6 s | BR: 0.17 | ALOSS: -2.75 | CLOSS: 0.11 | TLOSS: 0.37 | TVAL: 0.05 | AENT: 1.52 | BCLOSS: 0.00
+| [33mtrain[0m | E: 14 | S: 14000 | R: 595.13 | TR: 32.00 | TF: 10 | LR: 10 | NR: 0 | D: 20.7 s | TD: 367.2 s | BR: 0.20 | ALOSS: -3.98 | CLOSS: 0.09 | TLOSS: 0.32 | TVAL: 0.05 | AENT: 0.96 | BCLOSS: 0.00
+| [33mtrain[0m | E: 15 | S: 15000 | R: 603.36 | TR: 52.05 | TF: 10 | LR: 10 | NR: 0 | D: 24.9 s | TD: 392.2 s | BR: 0.23 | ALOSS: -5.28 | CLOSS: 0.08 | TLOSS: 0.27 | TVAL: 0.04 | AENT: 0.38 | BCLOSS: 0.00
+| [33mtrain[0m | E: 16 | S: 16000 | R: 546.92 | TR: 54.39 | TF: 10 | LR: 10 | NR: 0 | D: 25.0 s | TD: 417.2 s | BR: 0.25 | ALOSS: -6.56 | CLOSS: 0.07 | TLOSS: 0.22 | TVAL: 0.04 | AENT: -0.13 | BCLOSS: 0.00
+| [33mtrain[0m | E: 17 | S: 17000 | R: 566.21 | TR: 35.49 | TF: 10 | LR: 10 | NR: 0 | D: 25.4 s | TD: 442.6 s | BR: 0.27 | ALOSS: -7.85 | CLOSS: 0.06 | TLOSS: 0.19 | TVAL: 0.04 | AENT: -0.62 | BCLOSS: 0.00
+| [33mtrain[0m | E: 18 | S: 18000 | R: 676.60 | TR: 34.18 | TF: 10 | LR: 10 | NR: 0 | D: 25.2 s | TD: 467.7 s | BR: 0.29 | ALOSS: -9.11 | CLOSS: 0.06 | TLOSS: 0.16 | TVAL: 0.03 | AENT: -1.13 | BCLOSS: 0.00
+| [33mtrain[0m | E: 19 | S: 19000 | R: 455.79 | TR: 29.65 | TF: 10 | LR: 10 | NR: 0 | D: 25.6 s | TD: 493.3 s | BR: 0.31 | ALOSS: -10.38 | CLOSS: 0.06 | TLOSS: 0.13 | TVAL: 0.03 | AENT: -1.61 | BCLOSS: 0.00
+| [33mtrain[0m | E: 20 | S: 20000 | R: 729.80 | TR: 32.33 | TF: 10 | LR: 10 | NR: 0 | D: 25.7 s | TD: 519.1 s | BR: 0.32 | ALOSS: -11.64 | CLOSS: 0.06 | TLOSS: 0.11 | TVAL: 0.03 | AENT: -2.06 | BCLOSS: 0.00
+| [32meval[0m  | E: 20 | S: 20000 | R: 34.18 | TR: 34.18 | TS: 0.00
+| [33mtrain[0m | E: 21 | S: 21000 | R: 485.67 | TR: 31.29 | TF: 10 | LR: 10 | NR: 0 | D: 43.0 s | TD: 562.1 s | BR: 0.33 | ALOSS: -12.72 | CLOSS: 0.06 | TLOSS: 0.09 | TVAL: 0.03 | AENT: -2.53 | BCLOSS: 0.00
+| [33mtrain[0m | E: 22 | S: 22000 | R: 514.30 | TR: 34.59 | TF: 10 | LR: 10 | NR: 0 | D: 24.9 s | TD: 587.0 s | BR: 0.34 | ALOSS: -13.93 | CLOSS: 0.06 | TLOSS: 0.07 | TVAL: 0.02 | AENT: -2.95 | BCLOSS: 0.00
+| [33mtrain[0m | E: 23 | S: 23000 | R: 730.39 | TR: 40.37 | TF: 10 | LR: 10 | NR: 0 | D: 24.8 s | TD: 611.8 s | BR: 0.36 | ALOSS: -15.29 | CLOSS: 0.06 | TLOSS: 0.06 | TVAL: 0.02 | AENT: -3.30 | BCLOSS: 0.00
+| [33mtrain[0m | E: 24 | S: 24000 | R: 733.63 | TR: 37.66 | TF: 10 | LR: 10 | NR: 0 | D: 19.4 s | TD: 631.2 s | BR: 0.37 | ALOSS: -16.49 | CLOSS: 0.06 | TLOSS: 0.05 | TVAL: 0.02 | AENT: -3.70 | BCLOSS: 0.00
+| [33mtrain[0m | E: 25 | S: 25000 | R: 560.60 | TR: 32.43 | TF: 10 | LR: 10 | NR: 0 | D: 25.2 s | TD: 656.4 s | BR: 0.38 | ALOSS: -17.53 | CLOSS: 0.05 | TLOSS: 0.04 | TVAL: 0.02 | AENT: -4.14 | BCLOSS: 0.00
+| [33mtrain[0m | E: 26 | S: 26000 | R: 578.93 | TR: 29.66 | TF: 10 | LR: 10 | NR: 0 | D: 25.2 s | TD: 681.6 s | BR: 0.39 | ALOSS: -18.69 | CLOSS: 0.06 | TLOSS: 0.03 | TVAL: 0.02 | AENT: -4.49 | BCLOSS: 0.00
+| [33mtrain[0m | E: 27 | S: 27000 | R: 736.22 | TR: 35.51 | TF: 10 | LR: 10 | NR: 0 | D: 25.2 s | TD: 706.8 s | BR: 0.40 | ALOSS: -19.99 | CLOSS: 0.06 | TLOSS: 0.02 | TVAL: 0.02 | AENT: -4.77 | BCLOSS: 0.00
+| [33mtrain[0m | E: 28 | S: 28000 | R: 727.90 | TR: 48.54 | TF: 10 | LR: 10 | NR: 0 | D: 24.6 s | TD: 731.4 s | BR: 0.42 | ALOSS: -21.29 | CLOSS: 0.06 | TLOSS: 0.01 | TVAL: 0.02 | AENT: -5.07 | BCLOSS: 0.00
+| [33mtrain[0m | E: 29 | S: 29000 | R: 745.85 | TR: 42.48 | TF: 10 | LR: 10 | NR: 0 | D: 25.2 s | TD: 756.6 s | BR: 0.43 | ALOSS: -22.54 | CLOSS: 0.06 | TLOSS: 0.01 | TVAL: 0.01 | AENT: -5.32 | BCLOSS: 0.00
+| [33mtrain[0m | E: 30 | S: 30000 | R: 730.73 | TR: 37.56 | TF: 10 | LR: 10 | NR: 0 | D: 25.6 s | TD: 782.3 s | BR: 0.44 | ALOSS: -23.80 | CLOSS: 0.06 | TLOSS: 0.01 | TVAL: 0.01 | AENT: -5.57 | BCLOSS: 0.00
+| [32meval[0m  | E: 30 | S: 30000 | R: 42.39 | TR: 42.39 | TS: 0.00
+Reward function is updated!! ACC: 0.9833333333333334
+| [33mtrain[0m | E: 31 | S: 31000 | R: 772.15 | TR: 33.80 | TF: 10 | LR: 10 | NR: 0 | D: 43.8 s | TD: 826.0 s | BR: 0.22 | ALOSS: -24.43 | CLOSS: 0.19 | TLOSS: -0.00 | TVAL: 0.01 | AENT: -6.28 | BCLOSS: 0.00
+| [33mtrain[0m | E: 32 | S: 32000 | R: 638.62 | TR: 33.61 | TF: 20 | LR: 20 | NR: 0 | D: 25.4 s | TD: 851.4 s | BR: 0.24 | ALOSS: -25.30 | CLOSS: 0.18 | TLOSS: -0.00 | TVAL: 0.01 | AENT: -6.17 | BCLOSS: 0.00
+| [33mtrain[0m | E: 33 | S: 33000 | R: 660.56 | TR: 102.14 | TF: 20 | LR: 20 | NR: 0 | D: 25.2 s | TD: 876.6 s | BR: 0.25 | ALOSS: -26.43 | CLOSS: 0.15 | TLOSS: -0.00 | TVAL: 0.01 | AENT: -6.12 | BCLOSS: 0.00
+| [33mtrain[0m | E: 34 | S: 34000 | R: 687.37 | TR: 47.06 | TF: 20 | LR: 20 | NR: 0 | D: 20.9 s | TD: 897.5 s | BR: 0.26 | ALOSS: -27.71 | CLOSS: 0.14 | TLOSS: -0.00 | TVAL: 0.02 | AENT: -6.16 | BCLOSS: 0.00
+| [33mtrain[0m | E: 35 | S: 35000 | R: 695.29 | TR: 37.91 | TF: 20 | LR: 20 | NR: 0 | D: 23.6 s | TD: 921.0 s | BR: 0.28 | ALOSS: -28.90 | CLOSS: 0.13 | TLOSS: -0.00 | TVAL: 0.02 | AENT: -6.09 | BCLOSS: 0.00
+| [33mtrain[0m | E: 36 | S: 36000 | R: 772.43 | TR: 51.22 | TF: 20 | LR: 20 | NR: 0 | D: 24.9 s | TD: 946.0 s | BR: 0.29 | ALOSS: -30.03 | CLOSS: 0.13 | TLOSS: -0.00 | TVAL: 0.02 | AENT: -6.07 | BCLOSS: 0.00
+| [33mtrain[0m | E: 37 | S: 37000 | R: 683.02 | TR: 83.96 | TF: 20 | LR: 20 | NR: 0 | D: 24.8 s | TD: 970.8 s | BR: 0.30 | ALOSS: -31.17 | CLOSS: 0.13 | TLOSS: -0.00 | TVAL: 0.02 | AENT: -6.04 | BCLOSS: 0.00
+| [33mtrain[0m | E: 38 | S: 38000 | R: 688.34 | TR: 86.63 | TF: 20 | LR: 20 | NR: 0 | D: 25.0 s | TD: 995.7 s | BR: 0.31 | ALOSS: -32.34 | CLOSS: 0.12 | TLOSS: -0.00 | TVAL: 0.02 | AENT: -6.04 | BCLOSS: 0.00
+| [33mtrain[0m | E: 39 | S: 39000 | R: 509.34 | TR: 24.39 | TF: 20 | LR: 20 | NR: 0 | D: 25.0 s | TD: 1020.7 s | BR: 0.31 | ALOSS: -33.50 | CLOSS: 0.13 | TLOSS: -0.00 | TVAL: 0.02 | AENT: -6.05 | BCLOSS: 0.00
+| [33mtrain[0m | E: 40 | S: 40000 | R: 634.45 | TR: 60.89 | TF: 20 | LR: 20 | NR: 0 | D: 25.4 s | TD: 1046.1 s | BR: 0.32 | ALOSS: -34.62 | CLOSS: 0.13 | TLOSS: -0.00 | TVAL: 0.02 | AENT: -6.04 | BCLOSS: 0.00
+| [32meval[0m  | E: 40 | S: 40000 | R: 55.70 | TR: 55.70 | TS: 0.00
+| [33mtrain[0m | E: 41 | S: 41000 | R: 661.32 | TR: 83.29 | TF: 20 | LR: 20 | NR: 0 | D: 40.7 s | TD: 1086.8 s | BR: 0.33 | ALOSS: -35.73 | CLOSS: 0.12 | TLOSS: -0.00 | TVAL: 0.02 | AENT: -6.02 | BCLOSS: 0.00
+| [33mtrain[0m | E: 42 | S: 42000 | R: 765.05 | TR: 85.10 | TF: 20 | LR: 20 | NR: 0 | D: 25.3 s | TD: 1112.1 s | BR: 0.34 | ALOSS: -36.82 | CLOSS: 0.12 | TLOSS: -0.00 | TVAL: 0.02 | AENT: -6.02 | BCLOSS: 0.00
+| [33mtrain[0m | E: 43 | S: 43000 | R: 721.10 | TR: 55.21 | TF: 20 | LR: 20 | NR: 0 | D: 25.4 s | TD: 1137.5 s | BR: 0.35 | ALOSS: -37.92 | CLOSS: 0.11 | TLOSS: -0.00 | TVAL: 0.02 | AENT: -6.04 | BCLOSS: 0.00
+| [33mtrain[0m | E: 44 | S: 44000 | R: 774.44 | TR: 110.74 | TF: 20 | LR: 20 | NR: 0 | D: 22.5 s | TD: 1160.1 s | BR: 0.36 | ALOSS: -38.96 | CLOSS: 0.13 | TLOSS: -0.00 | TVAL: 0.02 | AENT: -6.01 | BCLOSS: 0.00
+| [33mtrain[0m | E: 45 | S: 45000 | R: 752.72 | TR: 67.21 | TF: 20 | LR: 20 | NR: 0 | D: 22.4 s | TD: 1182.5 s | BR: 0.37 | ALOSS: -39.98 | CLOSS: 0.12 | TLOSS: 0.00 | TVAL: 0.02 | AENT: -5.97 | BCLOSS: 0.00
+| [33mtrain[0m | E: 46 | S: 46000 | R: 669.31 | TR: 80.47 | TF: 20 | LR: 20 | NR: 0 | D: 26.0 s | TD: 1208.5 s | BR: 0.38 | ALOSS: -40.98 | CLOSS: 0.12 | TLOSS: -0.00 | TVAL: 0.02 | AENT: -6.01 | BCLOSS: 0.00
+| [33mtrain[0m | E: 47 | S: 47000 | R: 766.57 | TR: 66.55 | TF: 20 | LR: 20 | NR: 0 | D: 25.2 s | TD: 1233.6 s | BR: 0.38 | ALOSS: -41.95 | CLOSS: 0.12 | TLOSS: 0.00 | TVAL: 0.02 | AENT: -5.99 | BCLOSS: 0.00
+| [33mtrain[0m | E: 48 | S: 48000 | R: 671.76 | TR: 67.35 | TF: 20 | LR: 20 | NR: 0 | D: 24.9 s | TD: 1258.5 s | BR: 0.39 | ALOSS: -42.88 | CLOSS: 0.13 | TLOSS: 0.00 | TVAL: 0.02 | AENT: -5.98 | BCLOSS: 0.00
+| [33mtrain[0m | E: 49 | S: 49000 | R: 768.35 | TR: 89.87 | TF: 20 | LR: 20 | NR: 0 | D: 24.4 s | TD: 1283.0 s | BR: 0.40 | ALOSS: -43.78 | CLOSS: 0.12 | TLOSS: 0.00 | TVAL: 0.02 | AENT: -5.99 | BCLOSS: 0.00
+| [33mtrain[0m | E: 50 | S: 50000 | R: 727.27 | TR: 91.91 | TF: 20 | LR: 20 | NR: 0 | D: 24.5 s | TD: 1307.5 s | BR: 0.41 | ALOSS: -44.68 | CLOSS: 0.12 | TLOSS: 0.00 | TVAL: 0.02 | AENT: -6.00 | BCLOSS: 0.00
+| [32meval[0m  | E: 50 | S: 50000 | R: 84.08 | TR: 84.08 | TS: 0.00
+Reward function is updated!! ACC: 0.9777777777777779
+| [33mtrain[0m | E: 51 | S: 51000 | R: 799.03 | TR: 89.41 | TF: 20 | LR: 20 | NR: 0 | D: 42.7 s | TD: 1350.1 s | BR: -0.19 | ALOSS: -44.20 | CLOSS: 0.26 | TLOSS: 0.00 | TVAL: 0.02 | AENT: -5.96 | BCLOSS: 0.00
+| [33mtrain[0m | E: 52 | S: 52000 | R: 364.10 | TR: 75.56 | TF: 30 | LR: 30 | NR: 0 | D: 25.4 s | TD: 1375.5 s | BR: -0.18 | ALOSS: -44.02 | CLOSS: 0.24 | TLOSS: -0.00 | TVAL: 0.02 | AENT: -6.05 | BCLOSS: 0.00
+| [33mtrain[0m | E: 53 | S: 53000 | R: 440.74 | TR: 79.76 | TF: 30 | LR: 30 | NR: 0 | D: 24.9 s | TD: 1400.5 s | BR: -0.16 | ALOSS: -44.06 | CLOSS: 0.21 | TLOSS: -0.00 | TVAL: 0.02 | AENT: -6.05 | BCLOSS: 0.00
+| [33mtrain[0m | E: 54 | S: 54000 | R: 564.04 | TR: 99.54 | TF: 30 | LR: 30 | NR: 0 | D: 23.5 s | TD: 1424.0 s | BR: -0.15 | ALOSS: -44.21 | CLOSS: 0.19 | TLOSS: -0.00 | TVAL: 0.02 | AENT: -6.05 | BCLOSS: 0.00
+| [33mtrain[0m | E: 55 | S: 55000 | R: 564.96 | TR: 89.87 | TF: 30 | LR: 30 | NR: 0 | D: 20.6 s | TD: 1444.6 s | BR: -0.14 | ALOSS: -44.39 | CLOSS: 0.18 | TLOSS: -0.00 | TVAL: 0.02 | AENT: -6.06 | BCLOSS: 0.00
+| [33mtrain[0m | E: 56 | S: 56000 | R: 493.19 | TR: 82.39 | TF: 30 | LR: 30 | NR: 0 | D: 25.0 s | TD: 1469.6 s | BR: -0.13 | ALOSS: -44.60 | CLOSS: 0.17 | TLOSS: -0.00 | TVAL: 0.02 | AENT: -6.05 | BCLOSS: 0.00
+| [33mtrain[0m | E: 57 | S: 57000 | R: 608.09 | TR: 127.57 | TF: 30 | LR: 30 | NR: 0 | D: 24.8 s | TD: 1494.3 s | BR: -0.11 | ALOSS: -44.86 | CLOSS: 0.17 | TLOSS: -0.00 | TVAL: 0.02 | AENT: -6.04 | BCLOSS: 0.00
+| [33mtrain[0m | E: 58 | S: 58000 | R: 579.22 | TR: 160.64 | TF: 30 | LR: 30 | NR: 0 | D: 25.3 s | TD: 1519.6 s | BR: -0.10 | ALOSS: -45.19 | CLOSS: 0.17 | TLOSS: -0.00 | TVAL: 0.02 | AENT: -6.04 | BCLOSS: 0.00
+| [33mtrain[0m | E: 59 | S: 59000 | R: 608.76 | TR: 132.49 | TF: 30 | LR: 30 | NR: 0 | D: 25.1 s | TD: 1544.7 s | BR: -0.09 | ALOSS: -45.57 | CLOSS: 0.17 | TLOSS: -0.00 | TVAL: 0.02 | AENT: -6.02 | BCLOSS: 0.00
+| [33mtrain[0m | E: 60 | S: 60000 | R: 573.39 | TR: 119.02 | TF: 30 | LR: 30 | NR: 0 | D: 25.0 s | TD: 1569.7 s | BR: -0.08 | ALOSS: -45.99 | CLOSS: 0.17 | TLOSS: -0.00 | TVAL: 0.02 | AENT: -6.02 | BCLOSS: 0.00
+| [32meval[0m  | E: 60 | S: 60000 | R: 116.29 | TR: 116.29 | TS: 0.00
+| [33mtrain[0m | E: 61 | S: 61000 | R: 618.51 | TR: 132.74 | TF: 30 | LR: 30 | NR: 0 | D: 41.4 s | TD: 1611.1 s | BR: -0.07 | ALOSS: -46.46 | CLOSS: 0.17 | TLOSS: -0.00 | TVAL: 0.02 | AENT: -6.01 | BCLOSS: 0.00
+| [33mtrain[0m | E: 62 | S: 62000 | R: 631.43 | TR: 150.07 | TF: 30 | LR: 30 | NR: 0 | D: 24.7 s | TD: 1635.8 s | BR: -0.05 | ALOSS: -46.97 | CLOSS: 0.17 | TLOSS: -0.00 | TVAL: 0.02 | AENT: -6.02 | BCLOSS: 0.00
+| [33mtrain[0m | E: 63 | S: 63000 | R: 645.18 | TR: 162.59 | TF: 30 | LR: 30 | NR: 0 | D: 24.5 s | TD: 1660.3 s | BR: -0.05 | ALOSS: -47.47 | CLOSS: 0.17 | TLOSS: -0.00 | TVAL: 0.02 | AENT: -6.01 | BCLOSS: 0.00
+| [33mtrain[0m | E: 64 | S: 64000 | R: 640.66 | TR: 141.80 | TF: 30 | LR: 30 | NR: 0 | D: 24.7 s | TD: 1685.1 s | BR: -0.03 | ALOSS: -47.98 | CLOSS: 0.16 | TLOSS: -0.00 | TVAL: 0.02 | AENT: -6.00 | BCLOSS: 0.00
+| [33mtrain[0m | E: 65 | S: 65000 | R: 622.93 | TR: 132.65 | TF: 30 | LR: 30 | NR: 0 | D: 19.6 s | TD: 1704.7 s | BR: -0.02 | ALOSS: -48.47 | CLOSS: 0.17 | TLOSS: -0.00 | TVAL: 0.02 | AENT: -6.00 | BCLOSS: 0.00
+| [33mtrain[0m | E: 66 | S: 66000 | R: 504.99 | TR: 87.12 | TF: 30 | LR: 30 | NR: 0 | D: 24.6 s | TD: 1729.3 s | BR: -0.02 | ALOSS: -48.98 | CLOSS: 0.16 | TLOSS: -0.00 | TVAL: 0.02 | AENT: -6.01 | BCLOSS: 0.00
+| [33mtrain[0m | E: 67 | S: 67000 | R: 557.62 | TR: 155.42 | TF: 30 | LR: 30 | NR: 0 | D: 24.7 s | TD: 1754.0 s | BR: -0.01 | ALOSS: -49.48 | CLOSS: 0.16 | TLOSS: 0.00 | TVAL: 0.02 | AENT: -5.99 | BCLOSS: 0.00
+| [33mtrain[0m | E: 68 | S: 68000 | R: 627.12 | TR: 153.18 | TF: 30 | LR: 30 | NR: 0 | D: 24.8 s | TD: 1778.8 s | BR: 0.00 | ALOSS: -49.95 | CLOSS: 0.15 | TLOSS: 0.00 | TVAL: 0.02 | AENT: -5.99 | BCLOSS: 0.00
+| [33mtrain[0m | E: 69 | S: 69000 | R: 645.29 | TR: 140.00 | TF: 30 | LR: 30 | NR: 0 | D: 25.4 s | TD: 1804.2 s | BR: 0.01 | ALOSS: -50.39 | CLOSS: 0.15 | TLOSS: 0.00 | TVAL: 0.02 | AENT: -5.98 | BCLOSS: 0.00
+| [33mtrain[0m | E: 70 | S: 70000 | R: 628.70 | TR: 154.73 | TF: 30 | LR: 30 | NR: 0 | D: 25.0 s | TD: 1829.2 s | BR: 0.02 | ALOSS: -50.81 | CLOSS: 0.15 | TLOSS: 0.00 | TVAL: 0.02 | AENT: -5.99 | BCLOSS: 0.00
+| [32meval[0m  | E: 70 | S: 70000 | R: 124.00 | TR: 124.00 | TS: 0.00
+Reward function is updated!! ACC: 0.975
+| [33mtrain[0m | E: 71 | S: 71000 | R: 630.40 | TR: 143.83 | TF: 30 | LR: 30 | NR: 0 | D: 42.4 s | TD: 1871.6 s | BR: -0.01 | ALOSS: -51.07 | CLOSS: 0.17 | TLOSS: 0.00 | TVAL: 0.02 | AENT: -5.91 | BCLOSS: 0.00
+| [33mtrain[0m | E: 72 | S: 72000 | R: 565.82 | TR: 133.37 | TF: 40 | LR: 40 | NR: 0 | D: 24.7 s | TD: 1896.3 s | BR: -0.01 | ALOSS: -51.30 | CLOSS: 0.16 | TLOSS: 0.00 | TVAL: 0.02 | AENT: -5.96 | BCLOSS: 0.00
+| [33mtrain[0m | E: 73 | S: 73000 | R: 472.06 | TR: 111.49 | TF: 40 | LR: 40 | NR: 0 | D: 24.3 s | TD: 1920.6 s | BR: 0.00 | ALOSS: -51.52 | CLOSS: 0.15 | TLOSS: 0.00 | TVAL: 0.02 | AENT: -5.99 | BCLOSS: 0.00
+| [33mtrain[0m | E: 74 | S: 74000 | R: 599.59 | TR: 103.04 | TF: 40 | LR: 40 | NR: 0 | D: 24.2 s | TD: 1944.8 s | BR: 0.01 | ALOSS: -51.73 | CLOSS: 0.14 | TLOSS: -0.00 | TVAL: 0.02 | AENT: -6.02 | BCLOSS: 0.00
+| [33mtrain[0m | E: 75 | S: 75000 | R: 627.81 | TR: 152.65 | TF: 40 | LR: 40 | NR: 0 | D: 19.5 s | TD: 1964.3 s | BR: 0.02 | ALOSS: -51.98 | CLOSS: 0.14 | TLOSS: 0.00 | TVAL: 0.02 | AENT: -6.00 | BCLOSS: 0.00
+| [33mtrain[0m | E: 76 | S: 76000 | R: 623.06 | TR: 170.52 | TF: 40 | LR: 40 | NR: 0 | D: 25.6 s | TD: 1989.9 s | BR: 0.03 | ALOSS: -52.24 | CLOSS: 0.14 | TLOSS: -0.00 | TVAL: 0.02 | AENT: -6.00 | BCLOSS: 0.00
+| [33mtrain[0m | E: 77 | S: 77000 | R: 615.80 | TR: 130.72 | TF: 40 | LR: 40 | NR: 0 | D: 25.0 s | TD: 2014.8 s | BR: 0.03 | ALOSS: -52.50 | CLOSS: 0.14 | TLOSS: -0.00 | TVAL: 0.02 | AENT: -6.01 | BCLOSS: 0.00
+| [33mtrain[0m | E: 78 | S: 78000 | R: 538.05 | TR: 162.25 | TF: 40 | LR: 40 | NR: 0 | D: 25.4 s | TD: 2040.2 s | BR: 0.04 | ALOSS: -52.76 | CLOSS: 0.14 | TLOSS: 0.00 | TVAL: 0.02 | AENT: -5.99 | BCLOSS: 0.00
+| [33mtrain[0m | E: 79 | S: 79000 | R: 599.47 | TR: 139.81 | TF: 40 | LR: 40 | NR: 0 | D: 25.7 s | TD: 2065.9 s | BR: 0.05 | ALOSS: -53.01 | CLOSS: 0.13 | TLOSS: 0.00 | TVAL: 0.02 | AENT: -5.99 | BCLOSS: 0.00
+| [33mtrain[0m | E: 80 | S: 80000 | R: 653.67 | TR: 168.63 | TF: 40 | LR: 40 | NR: 0 | D: 25.2 s | TD: 2091.1 s | BR: 0.06 | ALOSS: -53.26 | CLOSS: 0.13 | TLOSS: 0.00 | TVAL: 0.02 | AENT: -6.00 | BCLOSS: 0.00
+| [32meval[0m  | E: 80 | S: 80000 | R: 176.85 | TR: 176.85 | TS: 0.00
+| [33mtrain[0m | E: 81 | S: 81000 | R: 629.08 | TR: 200.97 | TF: 40 | LR: 40 | NR: 0 | D: 41.8 s | TD: 2132.9 s | BR: 0.07 | ALOSS: -53.51 | CLOSS: 0.13 | TLOSS: 0.00 | TVAL: 0.02 | AENT: -5.99 | BCLOSS: 0.00
+| [33mtrain[0m | E: 82 | S: 82000 | R: 676.80 | TR: 192.59 | TF: 40 | LR: 40 | NR: 0 | D: 25.0 s | TD: 2157.8 s | BR: 0.07 | ALOSS: -53.77 | CLOSS: 0.12 | TLOSS: 0.00 | TVAL: 0.02 | AENT: -5.99 | BCLOSS: 0.00
+| [33mtrain[0m | E: 83 | S: 83000 | R: 692.19 | TR: 176.06 | TF: 40 | LR: 40 | NR: 0 | D: 24.9 s | TD: 2182.8 s | BR: 0.08 | ALOSS: -54.03 | CLOSS: 0.12 | TLOSS: 0.00 | TVAL: 0.02 | AENT: -5.99 | BCLOSS: 0.00
+| [33mtrain[0m | E: 84 | S: 84000 | R: 664.74 | TR: 166.81 | TF: 40 | LR: 40 | NR: 0 | D: 24.9 s | TD: 2207.7 s | BR: 0.09 | ALOSS: -54.30 | CLOSS: 0.12 | TLOSS: 0.00 | TVAL: 0.02 | AENT: -5.99 | BCLOSS: 0.00
+| [33mtrain[0m | E: 85 | S: 85000 | R: 623.39 | TR: 214.06 | TF: 40 | LR: 40 | NR: 0 | D: 20.0 s | TD: 2227.7 s | BR: 0.09 | ALOSS: -54.55 | CLOSS: 0.12 | TLOSS: 0.00 | TVAL: 0.02 | AENT: -5.98 | BCLOSS: 0.00
+| [33mtrain[0m | E: 86 | S: 86000 | R: 631.27 | TR: 182.97 | TF: 40 | LR: 40 | NR: 0 | D: 25.2 s | TD: 2252.9 s | BR: 0.10 | ALOSS: -54.78 | CLOSS: 0.12 | TLOSS: 0.00 | TVAL: 0.02 | AENT: -5.99 | BCLOSS: 0.00
+| [33mtrain[0m | E: 87 | S: 87000 | R: 610.86 | TR: 159.22 | TF: 40 | LR: 40 | NR: 0 | D: 25.6 s | TD: 2278.4 s | BR: 0.10 | ALOSS: -55.02 | CLOSS: 0.12 | TLOSS: 0.00 | TVAL: 0.02 | AENT: -5.99 | BCLOSS: 0.00
+| [33mtrain[0m | E: 88 | S: 88000 | R: 679.32 | TR: 221.54 | TF: 40 | LR: 40 | NR: 0 | D: 25.4 s | TD: 2303.8 s | BR: 0.11 | ALOSS: -55.26 | CLOSS: 0.11 | TLOSS: -0.00 | TVAL: 0.02 | AENT: -6.00 | BCLOSS: 0.00
+| [33mtrain[0m | E: 89 | S: 89000 | R: 676.67 | TR: 203.14 | TF: 40 | LR: 40 | NR: 0 | D: 25.1 s | TD: 2328.9 s | BR: 0.12 | ALOSS: -55.51 | CLOSS: 0.11 | TLOSS: 0.00 | TVAL: 0.02 | AENT: -5.99 | BCLOSS: 0.00
+| [33mtrain[0m | E: 90 | S: 90000 | R: 699.21 | TR: 238.57 | TF: 40 | LR: 40 | NR: 0 | D: 25.4 s | TD: 2354.3 s | BR: 0.12 | ALOSS: -55.75 | CLOSS: 0.11 | TLOSS: 0.00 | TVAL: 0.02 | AENT: -5.99 | BCLOSS: 0.00
+| [32meval[0m  | E: 90 | S: 90000 | R: 214.25 | TR: 214.25 | TS: 0.00
+Reward function is updated!! ACC: 0.9733333333333333
+| [33mtrain[0m | E: 91 | S: 91000 | R: 694.42 | TR: 211.88 | TF: 40 | LR: 40 | NR: 0 | D: 44.4 s | TD: 2398.7 s | BR: -0.00 | ALOSS: -55.66 | CLOSS: 0.14 | TLOSS: 0.00 | TVAL: 0.02 | AENT: -5.97 | BCLOSS: 0.00
+| [33mtrain[0m | E: 92 | S: 92000 | R: 616.10 | TR: 248.13 | TF: 50 | LR: 50 | NR: 0 | D: 25.1 s | TD: 2423.8 s | BR: 0.00 | ALOSS: -55.56 | CLOSS: 0.13 | TLOSS: -0.00 | TVAL: 0.02 | AENT: -6.01 | BCLOSS: 0.00
+| [33mtrain[0m | E: 93 | S: 93000 | R: 663.35 | TR: 178.28 | TF: 50 | LR: 50 | NR: 0 | D: 25.3 s | TD: 2449.1 s | BR: 0.01 | ALOSS: -55.51 | CLOSS: 0.14 | TLOSS: -0.00 | TVAL: 0.02 | AENT: -6.01 | BCLOSS: 0.00
+| [33mtrain[0m | E: 94 | S: 94000 | R: 635.64 | TR: 166.40 | TF: 50 | LR: 50 | NR: 0 | D: 25.1 s | TD: 2474.2 s | BR: 0.02 | ALOSS: -55.51 | CLOSS: 0.14 | TLOSS: -0.00 | TVAL: 0.02 | AENT: -6.01 | BCLOSS: 0.00
+| [33mtrain[0m | E: 95 | S: 95000 | R: 670.35 | TR: 128.50 | TF: 50 | LR: 50 | NR: 0 | D: 19.8 s | TD: 2494.0 s | BR: 0.02 | ALOSS: -55.54 | CLOSS: 0.13 | TLOSS: -0.00 | TVAL: 0.02 | AENT: -6.02 | BCLOSS: 0.00
+| [33mtrain[0m | E: 96 | S: 96000 | R: 696.72 | TR: 232.51 | TF: 50 | LR: 50 | NR: 0 | D: 24.9 s | TD: 2519.0 s | BR: 0.03 | ALOSS: -55.64 | CLOSS: 0.14 | TLOSS: -0.00 | TVAL: 0.02 | AENT: -6.00 | BCLOSS: 0.00
+| [33mtrain[0m | E: 97 | S: 97000 | R: 664.73 | TR: 192.61 | TF: 50 | LR: 50 | NR: 0 | D: 24.4 s | TD: 2543.4 s | BR: 0.04 | ALOSS: -55.74 | CLOSS: 0.14 | TLOSS: -0.00 | TVAL: 0.02 | AENT: -6.02 | BCLOSS: 0.00
+| [33mtrain[0m | E: 98 | S: 98000 | R: 661.46 | TR: 189.22 | TF: 50 | LR: 50 | NR: 0 | D: 22.8 s | TD: 2566.2 s | BR: 0.04 | ALOSS: -55.87 | CLOSS: 0.14 | TLOSS: -0.00 | TVAL: 0.02 | AENT: -6.01 | BCLOSS: 0.00
+| [33mtrain[0m | E: 99 | S: 99000 | R: 645.26 | TR: 239.48 | TF: 50 | LR: 50 | NR: 0 | D: 24.5 s | TD: 2590.7 s | BR: 0.05 | ALOSS: -56.02 | CLOSS: 0.14 | TLOSS: -0.00 | TVAL: 0.02 | AENT: -6.01 | BCLOSS: 0.00
+| [33mtrain[0m | E: 100 | S: 100000 | R: 698.46 | TR: 184.30 | TF: 50 | LR: 50 | NR: 0 | D: 24.7 s | TD: 2615.5 s | BR: 0.06 | ALOSS: -56.19 | CLOSS: 0.14 | TLOSS: 0.00 | TVAL: 0.02 | AENT: -6.00 | BCLOSS: 0.00
+| [32meval[0m  | E: 100 | S: 100000 | R: 200.54 | TR: 200.54 | TS: 0.00
+| [33mtrain[0m | E: 101 | S: 101000 | R: 689.53 | TR: 212.14 | TF: 50 | LR: 50 | NR: 0 | D: 41.6 s | TD: 2657.1 s | BR: 0.06 | ALOSS: -56.36 | CLOSS: 0.13 | TLOSS: 0.00 | TVAL: 0.02 | AENT: -5.99 | BCLOSS: 0.00
+| [33mtrain[0m | E: 102 | S: 102000 | R: 662.54 | TR: 206.93 | TF: 50 | LR: 50 | NR: 0 | D: 24.9 s | TD: 2682.0 s | BR: 0.07 | ALOSS: -56.54 | CLOSS: 0.13 | TLOSS: -0.00 | TVAL: 0.02 | AENT: -6.00 | BCLOSS: 0.00
+| [33mtrain[0m | E: 103 | S: 103000 | R: 723.81 | TR: 229.74 | TF: 50 | LR: 50 | NR: 0 | D: 24.9 s | TD: 2706.8 s | BR: 0.08 | ALOSS: -56.74 | CLOSS: 0.13 | TLOSS: -0.00 | TVAL: 0.02 | AENT: -6.00 | BCLOSS: 0.00
+| [33mtrain[0m | E: 104 | S: 104000 | R: 690.87 | TR: 235.64 | TF: 50 | LR: 50 | NR: 0 | D: 25.1 s | TD: 2731.9 s | BR: 0.08 | ALOSS: -56.95 | CLOSS: 0.13 | TLOSS: -0.00 | TVAL: 0.02 | AENT: -6.01 | BCLOSS: 0.00
+| [33mtrain[0m | E: 105 | S: 105000 | R: 737.59 | TR: 279.34 | TF: 50 | LR: 50 | NR: 0 | D: 20.3 s | TD: 2752.2 s | BR: 0.09 | ALOSS: -57.14 | CLOSS: 0.13 | TLOSS: 0.00 | TVAL: 0.02 | AENT: -5.99 | BCLOSS: 0.00
+| [33mtrain[0m | E: 106 | S: 106000 | R: 561.21 | TR: 202.07 | TF: 50 | LR: 50 | NR: 0 | D: 23.7 s | TD: 2775.9 s | BR: 0.09 | ALOSS: -57.35 | CLOSS: 0.13 | TLOSS: 0.00 | TVAL: 0.02 | AENT: -6.00 | BCLOSS: 0.00
+| [33mtrain[0m | E: 107 | S: 107000 | R: 714.89 | TR: 247.20 | TF: 50 | LR: 50 | NR: 0 | D: 25.0 s | TD: 2800.9 s | BR: 0.10 | ALOSS: -57.56 | CLOSS: 0.13 | TLOSS: 0.00 | TVAL: 0.02 | AENT: -6.00 | BCLOSS: 0.00
+| [33mtrain[0m | E: 108 | S: 108000 | R: 752.69 | TR: 272.72 | TF: 50 | LR: 50 | NR: 0 | D: 25.2 s | TD: 2826.1 s | BR: 0.10 | ALOSS: -57.77 | CLOSS: 0.13 | TLOSS: 0.00 | TVAL: 0.02 | AENT: -6.00 | BCLOSS: 0.00
+| [33mtrain[0m | E: 109 | S: 109000 | R: 741.65 | TR: 289.91 | TF: 50 | LR: 50 | NR: 0 | D: 25.1 s | TD: 2851.2 s | BR: 0.11 | ALOSS: -57.99 | CLOSS: 0.13 | TLOSS: 0.00 | TVAL: 0.02 | AENT: -5.99 | BCLOSS: 0.00
+| [33mtrain[0m | E: 110 | S: 110000 | R: 736.31 | TR: 264.82 | TF: 50 | LR: 50 | NR: 0 | D: 25.6 s | TD: 2876.8 s | BR: 0.12 | ALOSS: -58.22 | CLOSS: 0.12 | TLOSS: 0.00 | TVAL: 0.02 | AENT: -6.00 | BCLOSS: 0.00
+| [32meval[0m  | E: 110 | S: 110000 | R: 296.52 | TR: 296.52 | TS: 0.00
+Reward function is updated!! ACC: 0.9722222222222222
+| [33mtrain[0m | E: 111 | S: 111000 | R: 747.71 | TR: 306.01 | TF: 50 | LR: 50 | NR: 0 | D: 44.4 s | TD: 2921.2 s | BR: 0.20 | ALOSS: -58.63 | CLOSS: 0.18 | TLOSS: 0.00 | TVAL: 0.02 | AENT: -5.98 | BCLOSS: 0.00
+| [33mtrain[0m | E: 112 | S: 112000 | R: 733.70 | TR: 243.55 | TF: 60 | LR: 60 | NR: 0 | D: 25.3 s | TD: 2946.5 s | BR: 0.20 | ALOSS: -59.10 | CLOSS: 0.18 | TLOSS: 0.00 | TVAL: 0.02 | AENT: -6.00 | BCLOSS: 0.00
+| [33mtrain[0m | E: 113 | S: 113000 | R: 638.18 | TR: 253.78 | TF: 60 | LR: 60 | NR: 0 | D: 24.2 s | TD: 2970.7 s | BR: 0.21 | ALOSS: -59.54 | CLOSS: 0.18 | TLOSS: -0.00 | TVAL: 0.02 | AENT: -6.01 | BCLOSS: 0.00
+| [33mtrain[0m | E: 114 | S: 114000 | R: 690.38 | TR: 285.11 | TF: 60 | LR: 60 | NR: 0 | D: 24.2 s | TD: 2994.9 s | BR: 0.21 | ALOSS: -59.95 | CLOSS: 0.17 | TLOSS: -0.00 | TVAL: 0.02 | AENT: -6.01 | BCLOSS: 0.00
+| [33mtrain[0m | E: 115 | S: 115000 | R: 749.43 | TR: 319.35 | TF: 60 | LR: 60 | NR: 0 | D: 19.6 s | TD: 3014.5 s | BR: 0.22 | ALOSS: -60.33 | CLOSS: 0.17 | TLOSS: 0.00 | TVAL: 0.02 | AENT: -5.99 | BCLOSS: 0.00
+| [33mtrain[0m | E: 116 | S: 116000 | R: 736.10 | TR: 293.25 | TF: 60 | LR: 60 | NR: 0 | D: 22.5 s | TD: 3037.0 s | BR: 0.22 | ALOSS: -60.70 | CLOSS: 0.16 | TLOSS: 0.00 | TVAL: 0.02 | AENT: -5.99 | BCLOSS: 0.00
+| [33mtrain[0m | E: 117 | S: 117000 | R: 731.37 | TR: 282.37 | TF: 60 | LR: 60 | NR: 0 | D: 24.3 s | TD: 3061.3 s | BR: 0.23 | ALOSS: -61.04 | CLOSS: 0.16 | TLOSS: 0.00 | TVAL: 0.02 | AENT: -5.98 | BCLOSS: 0.00
+| [33mtrain[0m | E: 118 | S: 118000 | R: 715.23 | TR: 299.79 | TF: 60 | LR: 60 | NR: 0 | D: 24.2 s | TD: 3085.5 s | BR: 0.23 | ALOSS: -61.36 | CLOSS: 0.16 | TLOSS: 0.00 | TVAL: 0.02 | AENT: -5.99 | BCLOSS: 0.00
+| [33mtrain[0m | E: 119 | S: 119000 | R: 737.91 | TR: 341.21 | TF: 60 | LR: 60 | NR: 0 | D: 24.3 s | TD: 3109.8 s | BR: 0.23 | ALOSS: -61.66 | CLOSS: 0.15 | TLOSS: 0.00 | TVAL: 0.02 | AENT: -5.99 | BCLOSS: 0.00
+| [33mtrain[0m | E: 120 | S: 120000 | R: 761.39 | TR: 341.98 | TF: 60 | LR: 60 | NR: 0 | D: 24.3 s | TD: 3134.1 s | BR: 0.24 | ALOSS: -61.95 | CLOSS: 0.15 | TLOSS: 0.00 | TVAL: 0.02 | AENT: -5.98 | BCLOSS: 0.00
+| [32meval[0m  | E: 120 | S: 120000 | R: 350.20 | TR: 350.20 | TS: 0.00
+| [33mtrain[0m | E: 121 | S: 121000 | R: 751.80 | TR: 316.05 | TF: 60 | LR: 60 | NR: 0 | D: 40.7 s | TD: 3174.8 s | BR: 0.24 | ALOSS: -62.21 | CLOSS: 0.14 | TLOSS: 0.00 | TVAL: 0.02 | AENT: -5.99 | BCLOSS: 0.00
+| [33mtrain[0m | E: 122 | S: 122000 | R: 753.38 | TR: 367.55 | TF: 60 | LR: 60 | NR: 0 | D: 24.1 s | TD: 3198.9 s | BR: 0.25 | ALOSS: -62.47 | CLOSS: 0.14 | TLOSS: 0.00 | TVAL: 0.02 | AENT: -5.99 | BCLOSS: 0.00
+| [33mtrain[0m | E: 123 | S: 123000 | R: 769.06 | TR: 365.28 | TF: 60 | LR: 60 | NR: 0 | D: 24.3 s | TD: 3223.2 s | BR: 0.25 | ALOSS: -62.71 | CLOSS: 0.13 | TLOSS: 0.00 | TVAL: 0.02 | AENT: -5.99 | BCLOSS: 0.00
+| [33mtrain[0m | E: 124 | S: 124000 | R: 747.76 | TR: 349.33 | TF: 60 | LR: 60 | NR: 0 | D: 24.4 s | TD: 3247.5 s | BR: 0.26 | ALOSS: -62.94 | CLOSS: 0.13 | TLOSS: 0.00 | TVAL: 0.02 | AENT: -5.99 | BCLOSS: 0.00
+| [33mtrain[0m | E: 125 | S: 125000 | R: 732.36 | TR: 357.04 | TF: 60 | LR: 60 | NR: 0 | D: 21.1 s | TD: 3268.6 s | BR: 0.26 | ALOSS: -63.16 | CLOSS: 0.13 | TLOSS: 0.00 | TVAL: 0.02 | AENT: -6.00 | BCLOSS: 0.00
+| [33mtrain[0m | E: 126 | S: 126000 | R: 800.98 | TR: 364.06 | TF: 60 | LR: 60 | NR: 0 | D: 22.5 s | TD: 3291.1 s | BR: 0.26 | ALOSS: -63.39 | CLOSS: 0.12 | TLOSS: -0.00 | TVAL: 0.02 | AENT: -6.00 | BCLOSS: 0.00
+| [33mtrain[0m | E: 127 | S: 127000 | R: 793.40 | TR: 386.87 | TF: 60 | LR: 60 | NR: 0 | D: 24.4 s | TD: 3315.5 s | BR: 0.27 | ALOSS: -63.61 | CLOSS: 0.12 | TLOSS: 0.00 | TVAL: 0.02 | AENT: -5.99 | BCLOSS: 0.00
+| [33mtrain[0m | E: 128 | S: 128000 | R: 777.94 | TR: 347.05 | TF: 60 | LR: 60 | NR: 0 | D: 24.5 s | TD: 3340.0 s | BR: 0.27 | ALOSS: -63.83 | CLOSS: 0.12 | TLOSS: 0.00 | TVAL: 0.02 | AENT: -6.00 | BCLOSS: 0.00
+| [33mtrain[0m | E: 129 | S: 129000 | R: 782.25 | TR: 344.04 | TF: 60 | LR: 60 | NR: 0 | D: 24.2 s | TD: 3364.2 s | BR: 0.27 | ALOSS: -64.04 | CLOSS: 0.12 | TLOSS: 0.00 | TVAL: 0.02 | AENT: -5.99 | BCLOSS: 0.00
+| [33mtrain[0m | E: 130 | S: 130000 | R: 736.57 | TR: 302.70 | TF: 60 | LR: 60 | NR: 0 | D: 24.3 s | TD: 3388.5 s | BR: 0.28 | ALOSS: -64.26 | CLOSS: 0.11 | TLOSS: 0.00 | TVAL: 0.02 | AENT: -5.98 | BCLOSS: 0.00
+| [32meval[0m  | E: 130 | S: 130000 | R: 348.88 | TR: 348.88 | TS: 0.00
+Reward function is updated!! ACC: 0.9761904761904763
+| [33mtrain[0m | E: 131 | S: 131000 | R: 745.66 | TR: 363.07 | TF: 60 | LR: 60 | NR: 0 | D: 42.5 s | TD: 3431.0 s | BR: 0.22 | ALOSS: -64.26 | CLOSS: 0.16 | TLOSS: 0.00 | TVAL: 0.02 | AENT: -5.84 | BCLOSS: 0.00
+| [33mtrain[0m | E: 132 | S: 132000 | R: 540.39 | TR: 313.28 | TF: 70 | LR: 70 | NR: 0 | D: 24.3 s | TD: 3455.3 s | BR: 0.22 | ALOSS: -64.20 | CLOSS: 0.17 | TLOSS: 0.00 | TVAL: 0.02 | AENT: -5.87 | BCLOSS: 0.00
+| [33mtrain[0m | E: 133 | S: 133000 | R: 616.40 | TR: 266.64 | TF: 70 | LR: 70 | NR: 0 | D: 24.4 s | TD: 3479.6 s | BR: 0.22 | ALOSS: -64.13 | CLOSS: 0.18 | TLOSS: 0.00 | TVAL: 0.02 | AENT: -5.97 | BCLOSS: 0.00
+| [33mtrain[0m | E: 134 | S: 134000 | R: 450.47 | TR: 127.88 | TF: 70 | LR: 70 | NR: 0 | D: 24.2 s | TD: 3503.9 s | BR: 0.23 | ALOSS: -64.03 | CLOSS: 0.18 | TLOSS: -0.00 | TVAL: 0.02 | AENT: -6.02 | BCLOSS: 0.00
+| [33mtrain[0m | E: 135 | S: 135000 | R: 577.29 | TR: 252.45 | TF: 70 | LR: 70 | NR: 0 | D: 20.3 s | TD: 3524.2 s | BR: 0.23 | ALOSS: -63.95 | CLOSS: 0.17 | TLOSS: -0.00 | TVAL: 0.02 | AENT: -6.05 | BCLOSS: 0.00
+| [33mtrain[0m | E: 136 | S: 136000 | R: 610.04 | TR: 213.13 | TF: 70 | LR: 70 | NR: 0 | D: 22.1 s | TD: 3546.3 s | BR: 0.23 | ALOSS: -63.89 | CLOSS: 0.17 | TLOSS: -0.00 | TVAL: 0.02 | AENT: -6.02 | BCLOSS: 0.00
+| [33mtrain[0m | E: 137 | S: 137000 | R: 633.59 | TR: 206.45 | TF: 70 | LR: 70 | NR: 0 | D: 24.2 s | TD: 3570.4 s | BR: 0.23 | ALOSS: -63.84 | CLOSS: 0.16 | TLOSS: -0.00 | TVAL: 0.02 | AENT: -6.04 | BCLOSS: 0.00
+| [33mtrain[0m | E: 138 | S: 138000 | R: 598.45 | TR: 253.23 | TF: 70 | LR: 70 | NR: 0 | D: 24.3 s | TD: 3594.7 s | BR: 0.24 | ALOSS: -63.80 | CLOSS: 0.16 | TLOSS: -0.00 | TVAL: 0.02 | AENT: -6.02 | BCLOSS: 0.00
+| [33mtrain[0m | E: 139 | S: 139000 | R: 676.39 | TR: 267.81 | TF: 70 | LR: 70 | NR: 0 | D: 24.4 s | TD: 3619.1 s | BR: 0.24 | ALOSS: -63.77 | CLOSS: 0.15 | TLOSS: -0.00 | TVAL: 0.02 | AENT: -6.03 | BCLOSS: 0.00
+| [33mtrain[0m | E: 140 | S: 140000 | R: 692.06 | TR: 286.94 | TF: 70 | LR: 70 | NR: 0 | D: 24.4 s | TD: 3643.5 s | BR: 0.24 | ALOSS: -63.75 | CLOSS: 0.15 | TLOSS: -0.00 | TVAL: 0.02 | AENT: -6.02 | BCLOSS: 0.00
+| [32meval[0m  | E: 140 | S: 140000 | R: 291.03 | TR: 291.03 | TS: 0.00
+| [33mtrain[0m | E: 141 | S: 141000 | R: 665.39 | TR: 305.58 | TF: 70 | LR: 70 | NR: 0 | D: 40.2 s | TD: 3683.7 s | BR: 0.25 | ALOSS: -63.76 | CLOSS: 0.15 | TLOSS: -0.00 | TVAL: 0.02 | AENT: -6.01 | BCLOSS: 0.00
+| [33mtrain[0m | E: 142 | S: 142000 | R: 663.43 | TR: 327.10 | TF: 70 | LR: 70 | NR: 0 | D: 24.4 s | TD: 3708.0 s | BR: 0.25 | ALOSS: -63.77 | CLOSS: 0.14 | TLOSS: -0.00 | TVAL: 0.02 | AENT: -6.03 | BCLOSS: 0.00
+| [33mtrain[0m | E: 143 | S: 143000 | R: 660.52 | TR: 246.03 | TF: 70 | LR: 70 | NR: 0 | D: 24.2 s | TD: 3732.3 s | BR: 0.25 | ALOSS: -63.80 | CLOSS: 0.14 | TLOSS: -0.00 | TVAL: 0.02 | AENT: -6.01 | BCLOSS: 0.00
+| [33mtrain[0m | E: 144 | S: 144000 | R: 697.50 | TR: 353.56 | TF: 70 | LR: 70 | NR: 0 | D: 24.4 s | TD: 3756.6 s | BR: 0.26 | ALOSS: -63.83 | CLOSS: 0.14 | TLOSS: -0.00 | TVAL: 0.02 | AENT: -6.01 | BCLOSS: 0.00
+| [33mtrain[0m | E: 145 | S: 145000 | R: 720.14 | TR: 345.88 | TF: 70 | LR: 70 | NR: 0 | D: 21.5 s | TD: 3778.1 s | BR: 0.26 | ALOSS: -63.87 | CLOSS: 0.14 | TLOSS: 0.00 | TVAL: 0.02 | AENT: -6.00 | BCLOSS: 0.00
+| [33mtrain[0m | E: 146 | S: 146000 | R: 709.40 | TR: 348.31 | TF: 70 | LR: 70 | NR: 0 | D: 22.2 s | TD: 3800.2 s | BR: 0.26 | ALOSS: -63.91 | CLOSS: 0.14 | TLOSS: 0.00 | TVAL: 0.02 | AENT: -6.00 | BCLOSS: 0.00
+| [33mtrain[0m | E: 147 | S: 147000 | R: 711.50 | TR: 325.35 | TF: 70 | LR: 70 | NR: 0 | D: 24.2 s | TD: 3824.5 s | BR: 0.27 | ALOSS: -63.98 | CLOSS: 0.13 | TLOSS: -0.00 | TVAL: 0.02 | AENT: -6.01 | BCLOSS: 0.00
+| [33mtrain[0m | E: 148 | S: 148000 | R: 703.44 | TR: 356.18 | TF: 70 | LR: 70 | NR: 0 | D: 24.3 s | TD: 3848.8 s | BR: 0.27 | ALOSS: -64.02 | CLOSS: 0.13 | TLOSS: 0.00 | TVAL: 0.02 | AENT: -5.99 | BCLOSS: 0.00
+| [33mtrain[0m | E: 149 | S: 149000 | R: 661.88 | TR: 329.28 | TF: 70 | LR: 70 | NR: 0 | D: 24.2 s | TD: 3872.9 s | BR: 0.27 | ALOSS: -64.07 | CLOSS: 0.13 | TLOSS: -0.00 | TVAL: 0.02 | AENT: -6.00 | BCLOSS: 0.00
+| [33mtrain[0m | E: 150 | S: 150000 | R: 736.30 | TR: 390.07 | TF: 70 | LR: 70 | NR: 0 | D: 24.3 s | TD: 3897.2 s | BR: 0.27 | ALOSS: -64.13 | CLOSS: 0.13 | TLOSS: 0.00 | TVAL: 0.02 | AENT: -6.00 | BCLOSS: 0.00
+| [32meval[0m  | E: 150 | S: 150000 | R: 395.80 | TR: 395.80 | TS: 0.00
+Reward function is updated!! ACC: 0.9708333333333332
+| [33mtrain[0m | E: 151 | S: 151000 | R: 719.94 | TR: 437.39 | TF: 70 | LR: 70 | NR: 0 | D: 42.8 s | TD: 3940.0 s | BR: 0.22 | ALOSS: -64.03 | CLOSS: 0.19 | TLOSS: 0.00 | TVAL: 0.02 | AENT: -5.89 | BCLOSS: 0.00
+| [33mtrain[0m | E: 152 | S: 152000 | R: 734.48 | TR: 378.07 | TF: 80 | LR: 80 | NR: 0 | D: 24.2 s | TD: 3964.2 s | BR: 0.23 | ALOSS: -64.01 | CLOSS: 0.22 | TLOSS: 0.00 | TVAL: 0.02 | AENT: -5.98 | BCLOSS: 0.00
+| [33mtrain[0m | E: 153 | S: 153000 | R: 740.88 | TR: 333.53 | TF: 80 | LR: 80 | NR: 0 | D: 24.2 s | TD: 3988.4 s | BR: 0.23 | ALOSS: -64.03 | CLOSS: 0.21 | TLOSS: 0.00 | TVAL: 0.02 | AENT: -6.00 | BCLOSS: 0.00
+| [33mtrain[0m | E: 154 | S: 154000 | R: 724.26 | TR: 371.62 | TF: 80 | LR: 80 | NR: 0 | D: 24.5 s | TD: 4012.9 s | BR: 0.23 | ALOSS: -64.08 | CLOSS: 0.20 | TLOSS: -0.00 | TVAL: 0.02 | AENT: -6.01 | BCLOSS: 0.00
+| [33mtrain[0m | E: 155 | S: 155000 | R: 763.37 | TR: 380.10 | TF: 80 | LR: 80 | NR: 0 | D: 20.9 s | TD: 4033.8 s | BR: 0.23 | ALOSS: -64.14 | CLOSS: 0.19 | TLOSS: -0.00 | TVAL: 0.02 | AENT: -6.00 | BCLOSS: 0.00
+| [33mtrain[0m | E: 156 | S: 156000 | R: 745.54 | TR: 455.06 | TF: 80 | LR: 80 | NR: 0 | D: 21.9 s | TD: 4055.7 s | BR: 0.24 | ALOSS: -64.21 | CLOSS: 0.18 | TLOSS: -0.00 | TVAL: 0.02 | AENT: -6.01 | BCLOSS: 0.00
+| [33mtrain[0m | E: 157 | S: 157000 | R: 733.07 | TR: 400.36 | TF: 80 | LR: 80 | NR: 0 | D: 24.2 s | TD: 4080.0 s | BR: 0.24 | ALOSS: -64.32 | CLOSS: 0.18 | TLOSS: -0.00 | TVAL: 0.02 | AENT: -6.01 | BCLOSS: 0.00
+| [33mtrain[0m | E: 158 | S: 158000 | R: 792.00 | TR: 379.27 | TF: 80 | LR: 80 | NR: 0 | D: 24.3 s | TD: 4104.2 s | BR: 0.24 | ALOSS: -64.44 | CLOSS: 0.17 | TLOSS: 0.00 | TVAL: 0.02 | AENT: -6.00 | BCLOSS: 0.00
+| [33mtrain[0m | E: 159 | S: 159000 | R: 769.03 | TR: 345.31 | TF: 80 | LR: 80 | NR: 0 | D: 24.4 s | TD: 4128.6 s | BR: 0.25 | ALOSS: -64.59 | CLOSS: 0.16 | TLOSS: -0.00 | TVAL: 0.02 | AENT: -6.01 | BCLOSS: 0.00
+| [33mtrain[0m | E: 160 | S: 160000 | R: 827.66 | TR: 396.60 | TF: 80 | LR: 80 | NR: 0 | D: 24.2 s | TD: 4152.8 s | BR: 0.25 | ALOSS: -64.75 | CLOSS: 0.16 | TLOSS: -0.00 | TVAL: 0.02 | AENT: -6.00 | BCLOSS: 0.00
+| [32meval[0m  | E: 160 | S: 160000 | R: 367.44 | TR: 367.44 | TS: 0.00
+| [33mtrain[0m | E: 161 | S: 161000 | R: 813.53 | TR: 365.85 | TF: 80 | LR: 80 | NR: 0 | D: 40.0 s | TD: 4192.8 s | BR: 0.25 | ALOSS: -64.94 | CLOSS: 0.15 | TLOSS: -0.00 | TVAL: 0.02 | AENT: -6.01 | BCLOSS: 0.00
+| [33mtrain[0m | E: 162 | S: 162000 | R: 806.22 | TR: 407.32 | TF: 80 | LR: 80 | NR: 0 | D: 24.2 s | TD: 4217.0 s | BR: 0.26 | ALOSS: -65.13 | CLOSS: 0.15 | TLOSS: -0.00 | TVAL: 0.02 | AENT: -6.01 | BCLOSS: 0.00
+| [33mtrain[0m | E: 163 | S: 163000 | R: 809.87 | TR: 322.24 | TF: 80 | LR: 80 | NR: 0 | D: 24.2 s | TD: 4241.2 s | BR: 0.26 | ALOSS: -65.32 | CLOSS: 0.15 | TLOSS: -0.00 | TVAL: 0.02 | AENT: -6.00 | BCLOSS: 0.00
+| [33mtrain[0m | E: 164 | S: 164000 | R: 832.79 | TR: 336.49 | TF: 80 | LR: 80 | NR: 0 | D: 24.2 s | TD: 4265.5 s | BR: 0.26 | ALOSS: -65.52 | CLOSS: 0.14 | TLOSS: -0.00 | TVAL: 0.02 | AENT: -6.01 | BCLOSS: 0.00
+| [33mtrain[0m | E: 165 | S: 165000 | R: 824.25 | TR: 386.07 | TF: 80 | LR: 80 | NR: 0 | D: 21.9 s | TD: 4287.4 s | BR: 0.27 | ALOSS: -65.73 | CLOSS: 0.14 | TLOSS: 0.00 | TVAL: 0.02 | AENT: -6.00 | BCLOSS: 0.00
+| [33mtrain[0m | E: 166 | S: 166000 | R: 758.87 | TR: 350.70 | TF: 80 | LR: 80 | NR: 0 | D: 21.1 s | TD: 4308.5 s | BR: 0.27 | ALOSS: -65.94 | CLOSS: 0.14 | TLOSS: -0.00 | TVAL: 0.02 | AENT: -6.01 | BCLOSS: 0.00
+| [33mtrain[0m | E: 167 | S: 167000 | R: 815.60 | TR: 335.31 | TF: 80 | LR: 80 | NR: 0 | D: 24.3 s | TD: 4332.8 s | BR: 0.28 | ALOSS: -66.15 | CLOSS: 0.14 | TLOSS: -0.00 | TVAL: 0.02 | AENT: -6.00 | BCLOSS: 0.00
+| [33mtrain[0m | E: 168 | S: 168000 | R: 835.12 | TR: 375.42 | TF: 80 | LR: 80 | NR: 0 | D: 24.3 s | TD: 4357.1 s | BR: 0.28 | ALOSS: -66.38 | CLOSS: 0.13 | TLOSS: -0.00 | TVAL: 0.02 | AENT: -6.00 | BCLOSS: 0.00
+| [33mtrain[0m | E: 169 | S: 169000 | R: 788.21 | TR: 298.46 | TF: 80 | LR: 80 | NR: 0 | D: 24.3 s | TD: 4381.4 s | BR: 0.28 | ALOSS: -66.59 | CLOSS: 0.13 | TLOSS: 0.00 | TVAL: 0.02 | AENT: -6.00 | BCLOSS: 0.00
+| [33mtrain[0m | E: 170 | S: 170000 | R: 815.79 | TR: 347.82 | TF: 80 | LR: 80 | NR: 0 | D: 24.4 s | TD: 4405.7 s | BR: 0.28 | ALOSS: -66.80 | CLOSS: 0.13 | TLOSS: -0.00 | TVAL: 0.02 | AENT: -6.00 | BCLOSS: 0.00
+| [32meval[0m  | E: 170 | S: 170000 | R: 377.97 | TR: 377.97 | TS: 0.00
+Reward function is updated!! ACC: 0.9703703703703703
+| [33mtrain[0m | E: 171 | S: 171000 | R: 828.25 | TR: 376.15 | TF: 80 | LR: 80 | NR: 0 | D: 42.9 s | TD: 4448.6 s | BR: 0.44 | ALOSS: -67.35 | CLOSS: 0.21 | TLOSS: 0.00 | TVAL: 0.02 | AENT: -5.85 | BCLOSS: 0.00
+| [33mtrain[0m | E: 172 | S: 172000 | R: 874.91 | TR: 372.68 | TF: 90 | LR: 90 | NR: 0 | D: 24.3 s | TD: 4472.9 s | BR: 0.44 | ALOSS: -67.96 | CLOSS: 0.22 | TLOSS: 0.00 | TVAL: 0.02 | AENT: -5.88 | BCLOSS: 0.00
+| [33mtrain[0m | E: 173 | S: 173000 | R: 866.18 | TR: 334.54 | TF: 90 | LR: 90 | NR: 0 | D: 24.2 s | TD: 4497.1 s | BR: 0.45 | ALOSS: -68.53 | CLOSS: 0.21 | TLOSS: 0.00 | TVAL: 0.02 | AENT: -5.96 | BCLOSS: 0.00
+| [33mtrain[0m | E: 174 | S: 174000 | R: 842.51 | TR: 311.86 | TF: 90 | LR: 90 | NR: 0 | D: 24.2 s | TD: 4521.3 s | BR: 0.45 | ALOSS: -69.06 | CLOSS: 0.20 | TLOSS: 0.00 | TVAL: 0.01 | AENT: -5.98 | BCLOSS: 0.00
+| [33mtrain[0m | E: 175 | S: 175000 | R: 856.85 | TR: 335.64 | TF: 90 | LR: 90 | NR: 0 | D: 22.0 s | TD: 4543.3 s | BR: 0.45 | ALOSS: -69.56 | CLOSS: 0.18 | TLOSS: -0.00 | TVAL: 0.01 | AENT: -6.02 | BCLOSS: 0.00
+| [33mtrain[0m | E: 176 | S: 176000 | R: 877.88 | TR: 326.46 | TF: 90 | LR: 90 | NR: 0 | D: 20.7 s | TD: 4564.0 s | BR: 0.45 | ALOSS: -70.05 | CLOSS: 0.17 | TLOSS: 0.00 | TVAL: 0.01 | AENT: -5.99 | BCLOSS: 0.00
+| [33mtrain[0m | E: 177 | S: 177000 | R: 871.61 | TR: 352.98 | TF: 90 | LR: 90 | NR: 0 | D: 24.3 s | TD: 4588.3 s | BR: 0.46 | ALOSS: -70.52 | CLOSS: 0.17 | TLOSS: 0.00 | TVAL: 0.01 | AENT: -5.99 | BCLOSS: 0.00
+| [33mtrain[0m | E: 178 | S: 178000 | R: 875.17 | TR: 355.76 | TF: 90 | LR: 90 | NR: 0 | D: 24.2 s | TD: 4612.5 s | BR: 0.46 | ALOSS: -70.96 | CLOSS: 0.16 | TLOSS: 0.00 | TVAL: 0.01 | AENT: -5.99 | BCLOSS: 0.00
+| [33mtrain[0m | E: 179 | S: 179000 | R: 871.60 | TR: 381.63 | TF: 90 | LR: 90 | NR: 0 | D: 24.2 s | TD: 4636.7 s | BR: 0.46 | ALOSS: -71.37 | CLOSS: 0.15 | TLOSS: 0.00 | TVAL: 0.01 | AENT: -5.97 | BCLOSS: 0.00
+| [33mtrain[0m | E: 180 | S: 180000 | R: 865.70 | TR: 397.91 | TF: 90 | LR: 90 | NR: 0 | D: 24.1 s | TD: 4660.7 s | BR: 0.46 | ALOSS: -71.75 | CLOSS: 0.14 | TLOSS: 0.00 | TVAL: 0.01 | AENT: -5.99 | BCLOSS: 0.00
+| [32meval[0m  | E: 180 | S: 180000 | R: 421.11 | TR: 421.11 | TS: 0.00
+| [33mtrain[0m | E: 181 | S: 181000 | R: 897.68 | TR: 343.32 | TF: 90 | LR: 90 | NR: 0 | D: 40.1 s | TD: 4700.9 s | BR: 0.47 | ALOSS: -72.13 | CLOSS: 0.14 | TLOSS: 0.00 | TVAL: 0.01 | AENT: -5.98 | BCLOSS: 0.00
+| [33mtrain[0m | E: 182 | S: 182000 | R: 917.29 | TR: 424.07 | TF: 90 | LR: 90 | NR: 0 | D: 24.2 s | TD: 4725.0 s | BR: 0.47 | ALOSS: -72.49 | CLOSS: 0.13 | TLOSS: 0.00 | TVAL: 0.01 | AENT: -5.99 | BCLOSS: 0.00
+| [33mtrain[0m | E: 183 | S: 183000 | R: 888.40 | TR: 378.09 | TF: 90 | LR: 90 | NR: 0 | D: 24.3 s | TD: 4749.3 s | BR: 0.47 | ALOSS: -72.84 | CLOSS: 0.13 | TLOSS: 0.00 | TVAL: 0.01 | AENT: -5.98 | BCLOSS: 0.00
+| [33mtrain[0m | E: 184 | S: 184000 | R: 886.54 | TR: 411.21 | TF: 90 | LR: 90 | NR: 0 | D: 24.3 s | TD: 4773.6 s | BR: 0.47 | ALOSS: -73.18 | CLOSS: 0.12 | TLOSS: 0.00 | TVAL: 0.01 | AENT: -5.97 | BCLOSS: 0.00
+| [33mtrain[0m | E: 185 | S: 185000 | R: 864.79 | TR: 449.53 | TF: 90 | LR: 90 | NR: 0 | D: 23.3 s | TD: 4796.9 s | BR: 0.47 | ALOSS: -73.51 | CLOSS: 0.12 | TLOSS: 0.00 | TVAL: 0.01 | AENT: -5.98 | BCLOSS: 0.00
+| [33mtrain[0m | E: 186 | S: 186000 | R: 885.48 | TR: 421.12 | TF: 90 | LR: 90 | NR: 0 | D: 19.8 s | TD: 4816.6 s | BR: 0.48 | ALOSS: -73.84 | CLOSS: 0.12 | TLOSS: 0.00 | TVAL: 0.01 | AENT: -6.00 | BCLOSS: 0.00
+| [33mtrain[0m | E: 187 | S: 187000 | R: 900.72 | TR: 412.14 | TF: 90 | LR: 90 | NR: 0 | D: 24.3 s | TD: 4840.9 s | BR: 0.48 | ALOSS: -74.15 | CLOSS: 0.11 | TLOSS: 0.00 | TVAL: 0.01 | AENT: -5.98 | BCLOSS: 0.00
+| [33mtrain[0m | E: 188 | S: 188000 | R: 853.09 | TR: 353.06 | TF: 90 | LR: 90 | NR: 0 | D: 24.3 s | TD: 4865.2 s | BR: 0.48 | ALOSS: -74.44 | CLOSS: 0.12 | TLOSS: 0.00 | TVAL: 0.01 | AENT: -5.98 | BCLOSS: 0.00
+| [33mtrain[0m | E: 189 | S: 189000 | R: 872.73 | TR: 306.83 | TF: 90 | LR: 90 | NR: 0 | D: 24.2 s | TD: 4889.3 s | BR: 0.48 | ALOSS: -74.72 | CLOSS: 0.11 | TLOSS: 0.00 | TVAL: 0.01 | AENT: -6.00 | BCLOSS: 0.00
+| [33mtrain[0m | E: 190 | S: 190000 | R: 877.27 | TR: 302.62 | TF: 90 | LR: 90 | NR: 0 | D: 24.1 s | TD: 4913.4 s | BR: 0.48 | ALOSS: -74.98 | CLOSS: 0.11 | TLOSS: 0.00 | TVAL: 0.01 | AENT: -5.98 | BCLOSS: 0.00
+| [32meval[0m  | E: 190 | S: 190000 | R: 399.40 | TR: 399.40 | TS: 0.00
+Reward function is updated!! ACC: 0.9733333333333333
+| [33mtrain[0m | E: 191 | S: 191000 | R: 820.95 | TR: 328.18 | TF: 90 | LR: 90 | NR: 0 | D: 43.2 s | TD: 4956.6 s | BR: 0.46 | ALOSS: -75.07 | CLOSS: 0.15 | TLOSS: 0.00 | TVAL: 0.01 | AENT: -5.84 | BCLOSS: 0.00
+| [33mtrain[0m | E: 192 | S: 192000 | R: 870.95 | TR: 428.97 | TF: 100 | LR: 100 | NR: 0 | D: 24.2 s | TD: 4980.8 s | BR: 0.46 | ALOSS: -75.10 | CLOSS: 0.15 | TLOSS: 0.00 | TVAL: 0.01 | AENT: -5.94 | BCLOSS: 0.00
+| [33mtrain[0m | E: 193 | S: 193000 | R: 846.93 | TR: 383.79 | TF: 100 | LR: 100 | NR: 0 | D: 24.3 s | TD: 5005.0 s | BR: 0.46 | ALOSS: -75.14 | CLOSS: 0.15 | TLOSS: -0.00 | TVAL: 0.01 | AENT: -6.05 | BCLOSS: 0.00
+| [33mtrain[0m | E: 194 | S: 194000 | R: 877.24 | TR: 407.61 | TF: 100 | LR: 100 | NR: 0 | D: 24.2 s | TD: 5029.3 s | BR: 0.46 | ALOSS: -75.21 | CLOSS: 0.14 | TLOSS: -0.00 | TVAL: 0.01 | AENT: -6.05 | BCLOSS: 0.00
+| [33mtrain[0m | E: 195 | S: 195000 | R: 861.68 | TR: 396.37 | TF: 100 | LR: 100 | NR: 0 | D: 23.2 s | TD: 5052.5 s | BR: 0.46 | ALOSS: -75.29 | CLOSS: 0.14 | TLOSS: -0.00 | TVAL: 0.01 | AENT: -6.03 | BCLOSS: 0.00
+| [33mtrain[0m | E: 196 | S: 196000 | R: 858.13 | TR: 397.21 | TF: 100 | LR: 100 | NR: 0 | D: 19.6 s | TD: 5072.1 s | BR: 0.46 | ALOSS: -75.40 | CLOSS: 0.14 | TLOSS: -0.00 | TVAL: 0.01 | AENT: -6.03 | BCLOSS: 0.00
+| [33mtrain[0m | E: 197 | S: 197000 | R: 838.95 | TR: 397.55 | TF: 100 | LR: 100 | NR: 0 | D: 24.4 s | TD: 5096.5 s | BR: 0.47 | ALOSS: -75.53 | CLOSS: 0.14 | TLOSS: -0.00 | TVAL: 0.01 | AENT: -6.02 | BCLOSS: 0.00
+| [33mtrain[0m | E: 198 | S: 198000 | R: 816.25 | TR: 405.68 | TF: 100 | LR: 100 | NR: 0 | D: 24.4 s | TD: 5120.9 s | BR: 0.47 | ALOSS: -75.68 | CLOSS: 0.13 | TLOSS: -0.00 | TVAL: 0.01 | AENT: -6.02 | BCLOSS: 0.00
+| [33mtrain[0m | E: 199 | S: 199000 | R: 875.23 | TR: 371.69 | TF: 100 | LR: 100 | NR: 0 | D: 24.4 s | TD: 5145.3 s | BR: 0.47 | ALOSS: -75.85 | CLOSS: 0.13 | TLOSS: -0.00 | TVAL: 0.01 | AENT: -6.02 | BCLOSS: 0.00

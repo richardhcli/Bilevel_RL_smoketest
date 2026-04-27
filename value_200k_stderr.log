@@ -1,0 +1,2 @@
+Terminated
+ERROR conda.cli.main_run:execute(142): `conda run python /root/projects/Bi-level-Reinforcement-Learning-main/train_V.py env=walker_walk seed=12345 agent.params.actor_lr=0.0005 agent.params.critic_lr=0.0005 num_unsup_steps=9000 num_train_steps=200000 num_interact=20000 max_feedback=100 reward_batch=10 reward_update=50 feed_type=1 experiment=Value_lambda_0.1_fix1_200k_fresh log_save_tb=false` failed. (See above for error)

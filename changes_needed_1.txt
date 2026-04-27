@@ -1,0 +1,163 @@
+Task: Modify the repo so that the implementation matches the practical approximation described in Section F of arXiv:2503.17644, not the full main-text algorithm.
+
+High-level goal:
+- Keep the current single-loop practical training structure.
+- Do NOT implement the full theoretical/nested bilevel algorithm from the main text.
+- Leave train_V.py structurally unchanged.
+- Keep train_PEBBLE.py as the no-critic baseline.
+- Fix reward_model.py so that the value term in train_V.py actually affects the reward-model training in the intended practical way.
+
+Important clarification:
+- We are targeting the experimental setup in Section F only.
+- We are NOT trying to match Algorithm 1 from the main theory section.
+
+Current problem in the repo:
+- train_V.py passes self.agent.critic into reward-model training.
+- In reward_model.py, the critic contribution is currently added as a separate scalar term to the loss:
+    CE(...) + lambda1 * Q1.mean()
+- But the reward-model optimizer only updates reward-model parameters.
+- Since that extra term depends only on the critic, it does not change reward-model gradients in a meaningful way.
+- As a result, train_V.py behaves too similarly to train_PEBBLE.py.
+
+Required changes:
+
+1. Keep train_V.py unchanged
+- Do not modify train_V.py.
+- It should continue to call:
+  - self.reward_model.train_reward(self.agent.critic)
+  - self.reward_model.train_soft_reward(self.agent.critic)
+
+2. Keep train_PEBBLE.py as the no-critic baseline
+- train_PEBBLE.py should remain the version without critic-based reward correction.
+- It should call:
+  - self.reward_model.train_reward(critic=None)
+  - self.reward_model.train_soft_reward(critic=None)
+- If not already done, update train_PEBBLE.py accordingly.
+
+3. In reward_model.py, make critic optional
+- Update function signatures:
+  - def train_reward(self, critic=None)
+  - def train_soft_reward(self, critic=None)
+
+4. Main functional fix: inject the critic term into the pairwise logits, not as a standalone scalar penalty
+- In both train_reward and train_soft_reward:
+  - build the reward-model outputs for both compared segments
+  - if critic is provided, compute value corrections for both segments
+  - add those value corrections directly to the segment scores before summing/comparing
+
+Specifically:
+- Current pattern is effectively:
+    r_hat1 = reward_model(sa_t_1)
+    r_hat2 = reward_model(sa_t_2)
+    curr_loss = CE(pair_logits_from_r_hat1_r_hat2, labels) + lambda1 * Q1.mean()
+
+- Replace it with the Section F style practical approximation:
+    r_hat1 = reward_model(sa_t_1)
+    r_hat2 = reward_model(sa_t_2)
+
+    if critic is not None:
+        Q1, Q2 = critic.forward_v(obs_action=sa_t_1_temp)
+        Q1_2, Q2_2 = critic.forward_v(obs_action=sa_t_2_temp)
+
+        r_hat1 = r_hat1 + lambda1 * Q1_detached
+        r_hat2 = r_hat2 + lambda1 * Q1_2_detached
+
+    pair_logits = comparison_logits_built_from(r_hat1, r_hat2)
+    curr_loss = CE(pair_logits, labels)
+  or the soft-label version in train_soft_reward
+
+5. Use both compared segments symmetrically
+- The critic correction must be applied to both members of the preference pair:
+  - first segment uses Q1 from sa_t_1
+  - second segment uses Q1_2 from sa_t_2
+- Do not apply the correction only to the first segment.
+
+6. Detach critic values during reward-model training
+- For the Section F practical approximation, the critic should act as a fixed auxiliary signal during reward-model training.
+- Do NOT backpropagate reward-model loss into the critic through this path.
+- Therefore:
+  - either wrap critic.forward_v(...) inside torch.no_grad()
+  - or compute Q values normally and then call .detach() before using them
+- The critic itself should continue to be trained only by the SAC update code in agent/sac.py.
+
+7. Keep the no-critic path clean
+- If critic is None:
+  - do not compute any Q values
+  - do not add any value correction
+  - use the plain original reward-model pairwise loss
+- This keeps train_PEBBLE.py as the intended baseline.
+
+8. Preserve the rest of the training structure
+- Do not change:
+  - replay buffer logic
+  - SAC update flow
+  - reward relabeling flow
+  - active query / sampling logic
+  - environment interaction loop
+- We only want to fix how the critic is incorporated into reward-model training.
+
+Additional safety fixes:
+1. In train_PEBBLE.py and train_V.py:
+- inside learn_reward(), initialize:
+    total_acc = 0.0
+  before:
+    if self.labeled_feedback > 0:
+- This avoids a possible print-time error if no labels are obtained.
+
+Implementation notes for reward_model.py:
+
+A. train_reward(self, critic=None)
+- Keep existing batch loading, labels, and ensemble loop.
+- Build:
+    r_hat1 = self.r_hat_member(sa_t_1, member=member)
+    r_hat2 = self.r_hat_member(sa_t_2, member=member)
+
+- If critic is not None:
+    sa_t_1_temp = torch.as_tensor(sa_t_1, dtype=torch.float32).to(device)
+    sa_t_2_temp = torch.as_tensor(sa_t_2, dtype=torch.float32).to(device)
+
+    with torch.no_grad():
+        Q1, Q2 = critic.forward_v(obs_action=sa_t_1_temp)
+        Q1_2, Q2_2 = critic.forward_v(obs_action=sa_t_2_temp)
+
+    r_hat1 = r_hat1 + lambda1 * Q1
+    r_hat2 = r_hat2 + lambda1 * Q1_2
+
+- Then sum across segment dimension exactly as before:
+    r_hat1 = r_hat1.sum(axis=1)
+    r_hat2 = r_hat2.sum(axis=1)
+    r_hat = torch.cat([r_hat1, r_hat2], axis=-1)
+
+- Final loss:
+    curr_loss = self.CEloss(r_hat, labels)
+
+- Remove the old standalone scalar penalty:
+    + lambda1 * Q1.sum(axis=1).mean()
+
+B. train_soft_reward(self, critic=None)
+- Same idea as above.
+- Build the soft targets exactly as before.
+- If critic is not None, add value corrections to r_hat1 and r_hat2 before aggregation.
+- Final loss:
+    curr_loss = self.softXEnt_loss(r_hat, target_onehot)
+
+- Remove the old standalone scalar penalty here as well.
+
+What should NOT be changed:
+- train_V.py structure
+- SAC actor/critic update code
+- DoubleQCritic.forward_v interface
+- replay buffer format
+- config structure unless needed for clarity
+- lambda1 constant unless there is a separate experiment-specific reason
+
+Expected behavior after fix:
+- train_PEBBLE.py remains the plain baseline without critic-guided reward correction.
+- train_V.py becomes meaningfully different from train_PEBBLE.py.
+- The critic signal now actually changes reward-model preference logits during reward training.
+- This should better reflect the practical approximation used in Section F.
+
+Deliverable:
+- Update reward_model.py as described.
+- Update train_PEBBLE.py to call reward-model training with critic=None.
+- Leave train_V.py unchanged.

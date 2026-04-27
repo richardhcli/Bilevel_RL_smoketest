@@ -1,0 +1,4 @@
+workspace: /mnt/c/Users/mudit/OneDrive/Desktop/Academics/Bi_level_RL_MG/utsav code/Bi-level-Reinforcement-Learning-main-utsav-singh - Backup/Bi-level-Reinforcement-Learning-main/exp/walker_walk/H1024_L2_lr0.0005/teacher_b-1_g1_m0_s0_e0/init1000_unsup9000_inter20000_seg50_acttanh_Rlr0.0003_Rupdate50_en3_sample1_large_batch10_schedule_0_label_smooth_0.0/Value_lambda_0.1_fix1_200k_fresh_maxfeed100_Rbatch10_seed12345
+[2026-04-10 23:27:16,889][absl][INFO] - MUJOCO_GL=osmesa, attempting to import specified OpenGL backend.
+[2026-04-10 23:27:16,904][OpenGL.acceleratesupport][INFO] - No OpenGL_accelerate module loaded: No module named 'OpenGL_accelerate'
+[2026-04-10 23:27:17,041][absl][INFO] - MuJoCo library version is: 200

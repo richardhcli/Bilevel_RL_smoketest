@@ -1,0 +1,251 @@
+Instructions for the corrected codebase
+
+Purpose
+
+This repository was updated after an earlier buggy version. The earlier issues are described in `changes_needed_1.txt`.
+This file summarizes:
+
+1. what was changed,
+2. what environment is needed to run the code,
+3. how to rerun the experiments that reproduce the plot data we verified in this repo.
+
+
+What was changed relative to the earlier buggy version
+
+The main goal of the fix was to make the implementation match the practical approximation in Section F of arXiv:2503.17644, while preserving the current single-loop training structure.
+
+Files affected:
+- `reward_model.py`
+- `train_PEBBLE.py`
+- `train_V.py` was intentionally left structurally unchanged
+
+Summary of the fixes
+
+1. `train_PEBBLE.py` is now the explicit no-critic baseline again.
+- It now calls:
+  - `self.reward_model.train_reward(critic=None)`
+  - `self.reward_model.train_soft_reward(critic=None)`
+- This avoids the earlier mismatch where `reward_model.py` expected a `critic` argument.
+
+2. `reward_model.py` now supports both modes cleanly.
+- `train_reward(self, critic=None)`
+- `train_soft_reward(self, critic=None)`
+
+3. The value term for `train_V.py` is now applied correctly.
+- In the buggy version, the critic term was effectively added as a separate scalar penalty to the loss.
+- That did not meaningfully affect reward-model gradients, because the optimizer only updates reward-model parameters.
+- In the corrected version, when `critic is not None`, the critic value correction is injected directly into the pairwise reward logits before comparison.
+
+4. The critic correction is now symmetric across both queried segments.
+- The corrected code computes value corrections for both `sa_t_1` and `sa_t_2`.
+- Both corrections are added before the segment sums are compared.
+
+5. Critic values are detached during reward-model training.
+- `critic.forward_v(...)` is used under `torch.no_grad()`.
+- This keeps the critic as a fixed auxiliary signal during reward-model fitting, which is the intended practical approximation.
+
+6. Small safety fix.
+- `total_acc = 0.0` is initialized before reward-model training in both `train_PEBBLE.py` and `train_V.py`.
+- This avoids a possible print-time error when no labels are obtained.
+
+
+What this means behaviorally
+
+- `train_PEBBLE.py` remains the baseline without critic-guided reward correction.
+- `train_V.py` remains the value-guided version.
+- The difference between the two methods is now actually expressed in reward-model training.
+
+We verified this by rerunning the Walker experiments from scratch with the same seed and configuration. The new logs matched the original stored Walker logs exactly at every overlapping checkpoint up to 199k steps. That is very strong evidence that the current code path reproduces the plots already present in this repo.
+
+
+How to run the code
+
+Important
+
+Do not run this repo with native Windows Python. Use WSL Ubuntu.
+The working Linux-side repo location used for reproduction was:
+
+`/root/projects/Bi-level-Reinforcement-Learning-main`
+
+
+Environment setup in WSL
+
+1. Install Ubuntu packages
+
+`apt-get update`
+
+`DEBIAN_FRONTEND=noninteractive apt-get install -y unzip gcc g++ make build-essential cmake git wget curl libosmesa6-dev libgl1 libglfw3 patchelf libegl1 libopengl0 libglew-dev`
+
+2. Install Miniconda
+
+`wget -O /root/miniconda.sh https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh`
+
+`bash /root/miniconda.sh -b -p /root/miniconda3`
+
+`/root/miniconda3/bin/conda tos accept --override-channels --channel https://repo.anaconda.com/pkgs/main`
+
+`/root/miniconda3/bin/conda tos accept --override-channels --channel https://repo.anaconda.com/pkgs/r`
+
+3. Create the environment
+
+`cd /root/projects/Bi-level-Reinforcement-Learning-main`
+
+`/root/miniconda3/bin/conda env create -f conda_env.yml`
+
+4. Install MuJoCo 2.0 and 2.1.0
+
+`mkdir -p /root/.mujoco`
+
+`wget -O /tmp/mujoco200_linux.zip https://www.roboti.us/download/mujoco200_linux.zip`
+
+`unzip -o /tmp/mujoco200_linux.zip -d /root/.mujoco`
+
+`wget -O /root/.mujoco/mjkey.txt https://www.roboti.us/file/mjkey.txt`
+
+`wget -O /tmp/mujoco210-linux-x86_64.tar.gz https://mujoco.org/download/mujoco210-linux-x86_64.tar.gz`
+
+`tar -xzf /tmp/mujoco210-linux-x86_64.tar.gz -C /root/.mujoco`
+
+`ln -sf /usr/lib/x86_64-linux-gnu/libGL.so.1 /usr/lib/x86_64-linux-gnu/libGL.so`
+
+5. Install repo packages and compatibility pins
+
+`/root/miniconda3/bin/conda install -n mrn -c conda-forge -y dm-tree=0.1.5`
+
+`/root/miniconda3/bin/conda run -n mrn pip install -e /root/projects/Bi-level-Reinforcement-Learning-main`
+
+`/root/miniconda3/bin/conda run -n mrn pip install dm-env future h5py lxml protobuf==3.19.6 pyopengl scipy tqdm termcolor pybullet scikit-image`
+
+`/root/miniconda3/bin/conda run -n mrn pip install -e /root/projects/Bi-level-Reinforcement-Learning-main/custom_dmcontrol --no-deps`
+
+`/root/miniconda3/bin/conda run -n mrn pip install -e /root/projects/Bi-level-Reinforcement-Learning-main/custom_dmc2gym`
+
+`/root/miniconda3/bin/conda run -n mrn pip install git+https://github.com/rlworkgroup/metaworld.git@04be337a12305e393c0caf0cbf5ec7755c7c8feb`
+
+`/root/miniconda3/bin/conda run -n mrn pip install git+https://github.com/facebookresearch/hydra@0.11_branch`
+
+`/root/miniconda3/bin/conda run -n mrn pip install "Cython<3"`
+
+`/root/miniconda3/bin/conda run -n mrn pip install --force-reinstall "gym==0.17.3"`
+
+6. Set environment variables before training
+
+`export MUJOCO_GL=osmesa`
+
+`export MJKEY_PATH=/root/.mujoco/mjkey.txt`
+
+`export MJLIB_PATH=/root/.mujoco/mujoco200_linux/bin/libmujoco200.so`
+
+`export MUJOCO_PY_MUJOCO_PATH=/root/.mujoco/mujoco210`
+
+`export LD_LIBRARY_PATH=/root/.mujoco/mujoco200_linux/bin:/root/.mujoco/mujoco210/bin:${LD_LIBRARY_PATH}`
+
+
+Commands used to reproduce the Walker plot data
+
+These are the key Walker runs whose logs we verified against the existing stored plot data.
+
+Ours
+
+`python train_V.py env=walker_walk seed=12345 agent.params.actor_lr=0.0005 agent.params.critic_lr=0.0005 num_unsup_steps=9000 num_train_steps=1000000 num_interact=20000 max_feedback=100 reward_batch=10 reward_update=50 feed_type=1 experiment=Value_lambda_0.1_fix1`
+
+PEBBLE baseline
+
+If you want to match `plot_current_results.py`, use:
+
+`python train_PEBBLE.py env=walker_walk seed=12345 agent.params.actor_lr=0.0005 agent.params.critic_lr=0.0005 num_unsup_steps=9000 num_train_steps=1000000 num_interact=20000 max_feedback=100 reward_batch=10 reward_update=50 feed_type=1 experiment=PEBBLE`
+
+If you want to match `plot_walker_train_200k_compare.py` and `plot_walker_eval_compare.py` exactly, use:
+
+`python train_PEBBLE.py env=walker_walk seed=12345 agent.params.actor_lr=0.0005 agent.params.critic_lr=0.0005 num_unsup_steps=9000 num_train_steps=1000000 num_interact=20000 max_feedback=100 reward_batch=10 reward_update=50 feed_type=1 experiment=PEBBLE_walker_refresh`
+
+Note on naming
+
+The plotting scripts are not fully consistent about the Walker PEBBLE run name:
+- `plot_current_results.py` expects `PEBBLE_maxfeed100_Rbatch10_seed12345`
+- `plot_walker_train_200k_compare.py` expects `PEBBLE_walker_refresh_maxfeed100_Rbatch10_seed12345`
+- `plot_walker_eval_compare.py` expects `PEBBLE_walker_refresh_maxfeed100_Rbatch10_seed12345`
+
+So if you want to regenerate a specific figure, make sure the experiment name matches the path expected by that plotting script.
+
+
+Commands used to reproduce the Door Open plot data
+
+Ours
+
+`python train_V.py env=metaworld_door-open-v2 seed=12349 agent.params.actor_lr=0.0003 agent.params.critic_lr=0.0003 num_unsup_steps=9000 num_train_steps=1000000 agent.params.batch_size=512 double_q_critic.params.hidden_dim=256 double_q_critic.params.hidden_depth=3 diag_gaussian_actor.params.hidden_dim=256 diag_gaussian_actor.params.hidden_depth=3 num_interact=5000 max_feedback=1000 reward_batch=10 reward_update=10 feed_type=1 experiment=Value_lambda_0.1_fix1_dooropen`
+
+PEBBLE baseline
+
+`python train_PEBBLE.py env=metaworld_door-open-v2 seed=12345 agent.params.actor_lr=0.0003 agent.params.critic_lr=0.0003 num_unsup_steps=9000 num_train_steps=1000000 agent.params.batch_size=512 double_q_critic.params.hidden_dim=256 double_q_critic.params.hidden_depth=3 diag_gaussian_actor.params.hidden_dim=256 diag_gaussian_actor.params.hidden_depth=3 num_interact=5000 max_feedback=1000 reward_batch=10 reward_update=10 feed_type=1 experiment=PEBBLE_dooropen_fixbaseline`
+
+
+How logs are written
+
+Each Hydra run writes into:
+
+`./exp/${env}/H.../${experiment}_maxfeed${max_feedback}_Rbatch${reward_batch}_seed${seed}`
+
+The key files are:
+- `train.csv`
+- `eval.csv`
+- `metadata.pkl`
+
+The plotting scripts use `step` and `episode_reward` from these CSVs.
+
+
+How to generate the existing plots
+
+1. Current Walker + Door Open training reward figure
+
+This script writes:
+- `figs/current_pebble_vs_ours.svg`
+
+Run:
+
+`python plot_current_results.py`
+
+Expected input directories:
+- Walker:
+  - `PEBBLE_maxfeed100_Rbatch10_seed12345`
+  - `Value_lambda_0.1_fix1_maxfeed100_Rbatch10_seed12345`
+- Door:
+  - `PEBBLE_dooropen_fixbaseline_maxfeed1000_Rbatch10_seed12345`
+  - `Value_lambda_0.1_fix1_dooropen_maxfeed1000_Rbatch10_seed12349`
+
+2. Walker 0-200k training reward comparison
+
+This script writes:
+- `figs/walker_train_pebble_vs_ours_200k.svg`
+
+Run:
+
+`python plot_walker_train_200k_compare.py`
+
+Expected Walker input directories:
+- `PEBBLE_walker_refresh_maxfeed100_Rbatch10_seed12345`
+- `Value_lambda_0.1_fix1_maxfeed100_Rbatch10_seed12345`
+
+3. Walker eval comparison
+
+This script writes:
+- `figs/walker_eval_pebble_vs_ours.svg`
+
+Run:
+
+`python plot_walker_eval_compare.py`
+
+4. Door Open eval comparison
+
+This script writes:
+- `figs/door_eval_pebble_vs_ours.svg`
+
+Run:
+
+`python plot_door_eval_compare.py`
+
+
+Reproducibility note
+
+We reran the Walker experiments from scratch with the same seed and verified that the newly generated logs matched the original stored logs exactly at every overlapping checkpoint through nearly the full run. That is strong practical evidence that this corrected codebase is the code path used to generate the existing Walker figures in this repo.
+
