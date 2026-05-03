@@ -48,7 +48,7 @@ save_video: false
 seed: 1
 
 # Environment
-env: dog_stand
+env: Pendulum-v1
 gradient_update: 1
 
 # hydra configuration

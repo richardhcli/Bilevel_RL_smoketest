@@ -1,0 +1,1 @@
+['', '/home/richardhcli/anaconda3/envs/mrn/lib/python38.zip', '/home/richardhcli/anaconda3/envs/mrn/lib/python3.8', '/home/richardhcli/anaconda3/envs/mrn/lib/python3.8/lib-dynload', '/home/richardhcli/anaconda3/envs/mrn/lib/python3.8/site-packages']

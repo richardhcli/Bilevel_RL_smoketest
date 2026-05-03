@@ -19,6 +19,7 @@ from collections import deque
 import utils
 import hydra
 
+import gymnasium as gym
 
 class Workspace(object):
     def __init__(self, cfg):
@@ -39,11 +40,15 @@ class Workspace(object):
         self.log_success = False
 
         # make env
-        if 'metaworld' in cfg.env:
-            self.env = utils.make_metaworld_env(cfg)
-            self.log_success = True
-        else:
-            self.env = utils.make_env(cfg)
+        # if 'metaworld' in cfg.env:
+        #     self.env = utils.make_metaworld_env(cfg)
+        #     self.log_success = True
+        # else:
+        #     self.env = utils.make_env(cfg)
+        # make env
+        self.env = gym.make('Pendulum-v1')
+        self.env._max_episode_steps = self.env.spec.max_episode_steps
+        self.log_success = False
 
         cfg.agent.params.obs_dim = self.env.observation_space.shape[0]
         cfg.agent.params.action_dim = self.env.action_space.shape[0]
@@ -92,7 +97,7 @@ class Workspace(object):
             success_rate = 0
 
         for episode in range(self.cfg.num_eval_episodes):
-            obs = self.env.reset()
+            obs, _ = self.env.reset()
             self.agent.reset()
             done = False
             episode_reward = 0
@@ -103,7 +108,8 @@ class Workspace(object):
             while not done:
                 with utils.eval_mode(self.agent):
                     action = self.agent.act(obs, sample=False)
-                obs, reward, done, extra = self.env.step(action)
+                obs, reward, terminated, truncated, extra = self.env.step(action)
+                done = terminated or truncated
 
                 episode_reward += reward
                 true_episode_reward += reward
@@ -204,7 +210,7 @@ class Workspace(object):
                     self.logger.log('train/episode_success', episode_success, self.step)
                     self.logger.log('train/true_episode_success', episode_success, self.step)
 
-                obs = self.env.reset()
+                obs, _ = self.env.reset()
                 self.agent.reset()
                 done = False
                 episode_reward = 0
@@ -296,12 +302,14 @@ class Workspace(object):
                 self.agent.update_state_ent(self.replay_buffer, self.logger, self.step, gradient_update=1,
                                             K=self.cfg.topK)
 
-            next_obs, reward, done, extra = self.env.step(action)
+            next_obs, reward, terminated, truncated, extra = self.env.step(action)
             reward_hat = self.reward_model.r_hat(np.concatenate([obs, action], axis=-1))
 
             # allow infinite bootstrap
-            done = float(done)
-            done_no_max = 0 if episode_step + 1 == self.env._max_episode_steps else done
+            done = float(terminated or truncated)
+            done_no_max = float(terminated) # 0 if truncated by time limit, 1 if naturally terminated
+
+
             episode_reward += reward_hat
             true_episode_reward += reward
 
