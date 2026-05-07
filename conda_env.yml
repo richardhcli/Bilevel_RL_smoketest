@@ -9,7 +9,7 @@ dependencies:
   - absl-py
   - pyparsing
   - bazel
-  - box2d-py=2.3.5  # Pre-compiled C++ physics engine
+  - box2d-py  # Pre-compiled C++ physics engine
   - pip
   - pip:
     - termcolor

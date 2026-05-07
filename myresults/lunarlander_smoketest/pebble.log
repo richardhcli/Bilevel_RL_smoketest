@@ -1,0 +1,9 @@
+workspace: /home/richardhcli/data/Projects/CLAN_labs_onboarding_replicateBilevelPaper/exp/LunarLander-v3/H1024_L2_lr0.0001/teacher_b-1_g1_m0_s0_e0/init100_unsup100_inter5000_seg50_acttanh_Rlr0.0003_Rupdate200_en3_sample1_large_batch10_schedule_0_label_smooth_0.0/PEBBLE_maxfeed1400_Rbatch128_seed1
+| train          | E: 1 | S: 144 | R: 0.00 | TR: 0.00 | TF: 0 | LR: 0 | NR: 0 | D: 14.7 s | TD: 14.7 s | BR: 0.01 | ALOSS: -0.50 | CLOSS: 0.50 | TLOSS: 0.30 | TVAL: 0.10 | AENT: 1.05 | BCLOSS: 0.00
+| train          | E: 2 | S: 150 | R: 0.85 | TR: -246.92 | TF: 0 | LR: 0 | NR: 0 | D: 00.0 s | TD: 00.0 s | BR: 0.01 | ALOSS: -0.91 | CLOSS: 0.22 | TLOSS: 0.33 | TVAL: 0.10 | AENT: 1.34 | BCLOSS: 0.00
+| eval           | E: 2 | S: 150 | R: -107.44 | TR: -107.44 | TS: 0.00
+| train          | E: 0 | S: 151 | R: 0.00 | TR: 0.00 | TF: 0 | LR: 0 | NR: 0 | D: 02.4 s | TD: 17.1 s | BR: 0.01 | ALOSS: -0.93 | CLOSS: 0.02 | TLOSS: 0.33 | TVAL: 0.10 | AENT: 1.33 | BCLOSS: 0.00
+Reward function is updated!! ACC: 0.9713541666666666
+| train          | E: 3 | S: 235 | R: 0.09 | TR: -107.32 | TF: 0 | LR: 0 | NR: 0 | D: 91.9 s | TD: 109.0 s | BR: -0.02 | ALOSS: -0.66 | CLOSS: 0.18 | TLOSS: 0.32 | TVAL: 0.10 | AENT: 1.22 | BCLOSS: 0.00
+| train          | E: 4 | S: 300 | R: -9.51 | TR: -120.70 | TF: 128 | LR: 128 | NR: 0 | D: 00.0 s | TD: 00.0 s | BR: -0.07 | ALOSS: -0.17 | CLOSS: 0.01 | TLOSS: 0.30 | TVAL: 0.10 | AENT: 1.12 | BCLOSS: 0.00
+| eval           | E: 4 | S: 300 | R: -399.50 | TR: -399.50 | TS: 0.00

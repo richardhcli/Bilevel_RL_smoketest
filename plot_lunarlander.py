@@ -6,10 +6,16 @@ from pathlib import Path
 # WHAT: Automatically find the eval.csv files
 # WHY: Hardcoding those massive Hydra directory names leads to broken paths when you change settings.
 def find_eval_csv(base_dir, agent_prefix):
-    for path in Path(base_dir).rglob('eval.csv'):
-        if agent_prefix in str(path):
-            return path
-    return None
+    # WHAT: Find ALL matching eval.csv files in the directory tree
+    matches = [path for path in Path(base_dir).rglob('eval.csv') if agent_prefix in str(path)]
+    
+    if not matches:
+        return None
+        
+    # WHAT: Return the file that was most recently modified
+    # WHY: Guarantees we are plotting the data from the run that just finished, 
+    # totally ignoring any old, empty, or crashed Hydra directories.
+    return max(matches, key=os.path.getmtime)
 
 # WHAT: Load the data from the CSV
 # WHY: The logger automatically saves every evaluation step here, identical to what is in TensorBoard.
@@ -48,8 +54,9 @@ def main():
     # WHAT: Construct the graph using Matplotlib
     # WHY: It handles all the complex vector math for the SVG generation automatically.
     plt.figure(figsize=(8, 5))
-    plt.plot(pebble_steps, pebble_rewards, label="PEBBLE (Baseline)", color="#1f77b4", linewidth=2)
-    plt.plot(ours_steps, ours_rewards, label="OURS (Value-Guided)", color="#ff7f0e", linewidth=2)
+# Added marker='o' to draw dots at the data points
+    plt.plot(pebble_steps, pebble_rewards, label="PEBBLE (Baseline)", color="#1f77b4", linewidth=2, marker='o')
+    plt.plot(ours_steps, ours_rewards, label="OURS (Value-Guided)", color="#ff7f0e", linewidth=2, marker='o')
 
     plt.title("Evaluation Reward on LunarLander-v3", fontsize=14)
     plt.xlabel("Environment Steps", fontsize=12)

@@ -198,9 +198,10 @@ class Workspace(object):
                     self.logger.dump(self.step, save=(self.step > self.cfg.num_seed_steps))
 
                 # evaluate agent periodically
-                if self.step > 0 and self.step % self.cfg.eval_frequency == 0:
-                    self.logger.log('eval/episode', episode, self.step)
-                    self.evaluate()
+                # if self.step > 0 and self.step % self.cfg.eval_frequency == 0:
+                #     self.logger.log('eval/episode', episode, self.step)
+                #     self.evaluate()
+                #evaluta below to have script work for variable-length episodes. 
 
                 self.logger.log('train/episode_reward', episode_reward, self.step)
                 self.logger.log('train/true_episode_reward', true_episode_reward, self.step)
@@ -325,6 +326,13 @@ class Workspace(object):
             episode_step += 1
             self.step += 1
             interact_count += 1
+
+            # WHAT: The un-nested evaluation block
+            # WHY: Guarantees evaluation triggers precisely at 10k, 20k, 30k intervals
+            # regardless of variable-length episode boundaries.
+            if self.step > 0 and self.step % self.cfg.eval_frequency == 0:
+                self.logger.log('eval/episode', episode, self.step)
+                self.evaluate()
 
         self.agent.save(self.work_dir, self.step)
         self.reward_model.save(self.work_dir, self.step)

@@ -85,13 +85,29 @@ class MetersGroup(object):
             data[key] = meter.value()
         return data
 
+    # def _dump_to_csv(self, data):
+    #     if self._csv_writer is None:
+    #         self._csv_writer = csv.DictWriter(self._csv_file, fieldnames=sorted(data.keys()), restval=0.0)
+    #         self._csv_writer.writeheader()
+    #     self._csv_writer.writerow(data)
+    #     self._csv_file.flush()
     def _dump_to_csv(self, data):
         if self._csv_writer is None:
-            self._csv_writer = csv.DictWriter(self._csv_file, fieldnames=sorted(data.keys()), restval=0.0)
+            self._csv_fieldnames = list(data.keys())
+            self._csv_writer = csv.DictWriter(self._csv_file, fieldnames=self._csv_fieldnames)
             self._csv_writer.writeheader()
+        
+        # Dynamically expand fieldnames if new keys appear (e.g., duration, ALOSS)
+        missing_keys = [k for k in data.keys() if k not in self._csv_fieldnames]
+        if missing_keys:
+            self._csv_fieldnames.extend(missing_keys)
+            # Recreate the writer to accept the new columns without throwing a ValueError
+            self._csv_writer = csv.DictWriter(self._csv_file, fieldnames=self._csv_fieldnames)
+
         self._csv_writer.writerow(data)
         self._csv_file.flush()
 
+        
     def _format(self, key, value, ty):
         if ty == 'int':
             value = int(value)
