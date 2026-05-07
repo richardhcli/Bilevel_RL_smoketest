@@ -167,6 +167,7 @@ class RewardModel:
 
         self.opt = torch.optim.Adam(self.paramlst, lr=self.lr)
 
+
     def add_data(self, obs, act, rew, done):
         sa_t = np.concatenate([obs, act], axis=-1)
         r_t = rew
@@ -179,15 +180,6 @@ class RewardModel:
         if init_data:
             self.inputs.append(flat_input)
             self.targets.append(flat_target)
-        elif done:
-            self.inputs[-1] = np.concatenate([self.inputs[-1], flat_input])
-            self.targets[-1] = np.concatenate([self.targets[-1], flat_target])
-            # FIFO
-            if len(self.inputs) > self.max_size:
-                self.inputs = self.inputs[1:]
-                self.targets = self.targets[1:]
-            self.inputs.append([])
-            self.targets.append([])
         else:
             if len(self.inputs[-1]) == 0:
                 self.inputs[-1] = flat_input
@@ -195,6 +187,46 @@ class RewardModel:
             else:
                 self.inputs[-1] = np.concatenate([self.inputs[-1], flat_input])
                 self.targets[-1] = np.concatenate([self.targets[-1], flat_target])
+        
+        # WHAT: The "Fixed Chunking" workaround for variable-length environments.
+        # WHY: We cut a new block strictly at 1000 steps, ignoring 'done'. 
+        # This guarantees uniform array shapes, preventing the NumPy crash.
+        if len(self.inputs[-1]) == 1000:
+            # FIFO
+            if len(self.inputs) > self.max_size:
+                self.inputs = self.inputs[1:]
+                self.targets = self.targets[1:]
+            self.inputs.append([])
+            self.targets.append([])
+
+    # def add_data(self, obs, act, rew, done):
+    #     sa_t = np.concatenate([obs, act], axis=-1)
+    #     r_t = rew
+
+    #     flat_input = sa_t.reshape(1, self.da + self.ds)
+    #     r_t = np.array(r_t)
+    #     flat_target = r_t.reshape(1, 1)
+
+    #     init_data = len(self.inputs) == 0
+    #     if init_data:
+    #         self.inputs.append(flat_input)
+    #         self.targets.append(flat_target)
+    #     elif done:
+    #         self.inputs[-1] = np.concatenate([self.inputs[-1], flat_input])
+    #         self.targets[-1] = np.concatenate([self.targets[-1], flat_target])
+    #         # FIFO
+    #         if len(self.inputs) > self.max_size:
+    #             self.inputs = self.inputs[1:]
+    #             self.targets = self.targets[1:]
+    #         self.inputs.append([])
+    #         self.targets.append([])
+    #     else:
+    #         if len(self.inputs[-1]) == 0:
+    #             self.inputs[-1] = flat_input
+    #             self.targets[-1] = flat_target
+    #         else:
+    #             self.inputs[-1] = np.concatenate([self.inputs[-1], flat_input])
+    #             self.targets[-1] = np.concatenate([self.targets[-1], flat_target])
 
     def add_data_batch(self, obses, rewards):
         num_env = obses.shape[0]

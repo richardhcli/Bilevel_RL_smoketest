@@ -45,7 +45,9 @@ class Workspace(object):
         #     self.log_success = True
         # else:
         #     self.env = utils.make_env(cfg)
-        self.env = gym.make('Pendulum-v1')
+        # self.env = gym.make('Pendulum-v1')
+        # self.env = gym.make('LunarLander-v3', continuous=True)
+        self.env = gym.make(cfg.env, continuous=True)
         self.env._max_episode_steps = self.env.spec.max_episode_steps
         self.log_success = False
 

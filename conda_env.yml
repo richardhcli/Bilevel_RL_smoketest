@@ -1,13 +1,15 @@
 name: mrn
 channels:
+  - conda-forge
   - defaults
 dependencies:
-  - python=3.8  # for Gymnasium
+  - python=3.8
   - pytorch=1.4.0
   - cudatoolkit=10.1
   - absl-py
   - pyparsing
   - bazel
+  - box2d-py=2.3.5  # Pre-compiled C++ physics engine
   - pip
   - pip:
     - termcolor
@@ -18,3 +20,9 @@ dependencies:
     - matplotlib
     - glfw==1.11.2
     - scikit-image
+    - gymnasium[box2d]
+    - tensorboard
+    - tqdm
+    - scipy
+    - future
+    - h5py

@@ -46,7 +46,8 @@ class Workspace(object):
         # else:
         #     self.env = utils.make_env(cfg)
         # make env
-        self.env = gym.make('Pendulum-v1')
+        # self.env = gym.make('Pendulum-v1')
+        self.env = gym.make(cfg.env, continuous=True)
         self.env._max_episode_steps = self.env.spec.max_episode_steps
         self.log_success = False
 
